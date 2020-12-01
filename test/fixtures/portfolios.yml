@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  investor_id: 1
+  stock_id: 1
+  purchase_price: 1
+  selling_price: 1
+  buysell: false
+
+two:
+  investor_id: 1
+  stock_id: 1
+  purchase_price: 1
+  selling_price: 1
+  buysell: false

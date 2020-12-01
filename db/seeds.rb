@@ -10,3 +10,4 @@ client = IEX::Api::Client.new(
     publishable_token: 'Tpk_28e84a02533f42b19d47d6545f0083c3',
     secret_token: 'secret_token',
     endpoint: 'https://sandbox.iexapis.com/v1'
+)

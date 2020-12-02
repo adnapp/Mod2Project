@@ -30,6 +30,33 @@ Stock.create({
     name: "Apple",
 })
 
+i1 = Investor.first
+i2 = Investor.second
+s1 = Stock.first
+s2 = Stock.second
+
+Portfolio.create({
+    investor_id: i1.id,
+    stock_id: s1.id,
+    price: 100,
+    buysell: true,
+    quantity: 4
+})
+Portfolio.create({
+    investor_id: i2.id,
+    stock_id: s2.id,
+    price: 200,
+    buysell: true,
+    quantity: 5
+})
+Portfolio.create({
+    investor_id: i2.id,
+    stock_id: s2.id,
+    price: 250,
+    buysell: false,
+    quantity: 2
+})
+
 
 require 'pry'
 client = IEX::Api::Client.new(
@@ -37,4 +64,4 @@ client = IEX::Api::Client.new(
     secret_token: 'secret_token',
     endpoint: 'https://sandbox.iexapis.com/v1'
 )
-binding.pry
+# binding.pry

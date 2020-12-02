@@ -8,26 +8,36 @@ class PortfoliosController < ApplicationController
 
     def new
         @portfolio = Portfolio.new
-        
     end
 
     def create 
-        # byebug
+        byebug
         @portfolio = Portfolio.create(portfolio_params)
-
-        
+        redirect_to portfolios_path
     end
 
     def index
-        @positions = [["APPL", 25, 225.34], ["MSFT", 15, 27.53], ["GOOG", 10, 335.15]]
-        # @key_stats = @client.key_stats('MSFT')
-        # @company = @client.company('MSFT')
-        # @news = @client.news('MSFT', 3)
-        # @quote = @client.quote('MSFT')
+        @positions = Portfolio.all
         @total = 0
+        @newhash = {}
         @positions.each do |t|
-            @p = t[1] * t[2]
-            @total += @p
+            if t.buysell #if stock is bought, this boolean is true
+                @p = t[:quantity] * t[:price]
+                @total += @p
+            else
+                @p = t[:quantity] * t[:price] 
+                @total -= @p
+            end
+
+            # if 
+            #     # !@newhash[:name] == t.name
+            #     #     if t.buysell
+
+            #     #     end
+            # else
+
+            # end
+
         end 
         @total
     end

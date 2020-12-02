@@ -4,6 +4,14 @@ class PortfoliosController < ApplicationController
 
     end
 
+    def new
+        @portfolio = Portfolio.new
+    end
+
+    def create 
+        @portfolio = Portfolio.create(portfolio_params)
+    end
+
     def index
         @client = IEX::Api::Client.new(
         publishable_token: 'Tpk_28e84a02533f42b19d47d6545f0083c3',
@@ -16,4 +24,11 @@ class PortfoliosController < ApplicationController
         @quote = @client.quote('MSFT')
     end
 
+
+
+    private 
+
+    def portfolio_params
+        params.require(:portfolio).permit(:investor_id, :stock_id, :price, :quantity, :buysell)
+    end
 end

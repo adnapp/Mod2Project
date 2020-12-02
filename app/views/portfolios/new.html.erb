@@ -1,9 +1,27 @@
-<!--# Within here, stock will be added to portfolio. investor adds ticker, as well as quantity. 
-this will save a transaction in portfolio (buy/sell, quantity, price, ticker)
+<!--# Within here, stock will be added to portfolio. investor adds ticker, as well as quantity. -->
+<!--this will save a transaction in portfolio (buy/sell, quantity, price, ticker)-->
+
+<%=form_for @portfolio do |f|%>
+<%= f.label :stock %>
+<%= f.text_field :stock%><br><br>
 
 
--->
+<%= f.label :quantity %>
+<%= f.number_field :quantity%><br><br>
 
-<h3><%= @company.company_name %></h3>
-# <p>Price: <%= @quote.latest_price %></p>
-<p>Quantity</p>
+<%= f.radio_button(:buysell, "buy")%>
+<%= label_tag(:age_child, "Purchase Share(s)") %>
+
+
+<%= f.radio_button(:buysell, "sell")%>
+<%= label_tag(:age_child, "Sell Share(s)") %><br><br>
+
+
+
+<%= f.submit "Buy/Sell"%>
+<%end%>
+
+
+
+
+

@@ -19,11 +19,13 @@ class StocksController < ApplicationController
             @company = @client.company(params[:search])
             @news = @client.news(params[:search], 3)
             @quote = @client.quote(params[:search])
+            @ticker = params[:search]
         else
             @key_stats = @client.key_stats(params[:stockticker])
             @company = @client.company(params[:stockticker])
             @news = @client.news(params[:stockticker], 3)
             @quote = @client.quote(params[:stockticker])
+            @ticker = params[:stockticker]
         end
     end 
 

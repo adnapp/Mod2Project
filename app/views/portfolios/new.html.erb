@@ -1,20 +1,21 @@
 <!--# Within here, stock will be added to portfolio. investor adds ticker, as well as quantity. -->
 <!--this will save a transaction in portfolio (buy/sell, quantity, price, ticker)-->
+<!--adding ability to carry information from stock page-->
+<h2>Purchase shares of <%=@client.company(params[:ticker]).company_name%> </h2>
+
+<h4>Current Price: <%=@client.quote(params[:ticker]).latest_price%> </h4>
 
 <%=form_for @portfolio do |f|%>
-<%= f.label :stock %>
-<%= f.text_field :stock%><br><br>
-
 
 <%= f.label :quantity %>
 <%= f.number_field :quantity%><br><br>
 
 <%= f.radio_button(:buysell, "buy")%>
-<%= label_tag(:age_child, "Purchase Share(s)") %>
+<%= label_tag( "Purchase Share(s)") %>
 
 
 <%= f.radio_button(:buysell, "sell")%>
-<%= label_tag(:age_child, "Sell Share(s)") %><br><br>
+<%= label_tag("Sell Share(s)") %><br><br>
 
 
 

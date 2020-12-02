@@ -1,20 +1,21 @@
 
 <!--form to choose gainers/losers-->
-<%= form_for @stocks do |f| %>
-<%= f.collection_select :stocks, @active, @gainer, @loser, @volume, @percent :name %>
-<%= f.submit %>
-<%end%>
-
-<% @stocks.each do |stock|%>
-<p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>
-<%end%>
-
+<h3><%= link_to "Most Active", stock_active_path %></h3>
+<br>
+<h3><%= link_to "Biggest Gainers", stock_gainers_path %></h3>
+<br>
+<h3><%= link_to "Biggest Losers", stock_losers_path %></h3>
+<br>
+<h3><%= link_to "Higest Volume", stock_volume_path %></h3>
+<br>
+<h3><%= link_to "Largest Percentage", stock_percent_path %></h3>
+<br>
 <!-- search bar, sending same info back. form tag, repeat above-->
 
 <br>
 <%= form_tag stock_show_path(:search), method: :get do %>
-  <%= label_tag "Search for a stock by ticker:"%>
-  <%= text_field_tag :stockticker %>
+  <%= label_tag "Search for a stock by ticker"%>
+  <%= search_field_tag :search %>
 
   <%= submit_tag("Search")  %>
 

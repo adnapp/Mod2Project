@@ -1,7 +1,7 @@
 class PortfoliosController < ApplicationController
 
     def show 
-
+       
     end
 
     def index
@@ -10,10 +10,12 @@ class PortfoliosController < ApplicationController
         secret_token: 'secret_token',
         endpoint: 'https://sandbox.iexapis.com/v1'
     )
-        @key_stats = @client.key_stats('MSFT')
-        @company = @client.company('MSFT')
-        @news = @client.news('MSFT', 3)
-        @quote = @client.quote('MSFT')
+        @key_stats = @client.key_stats(params[:stockticker])
+        @company = @client.company(params[:stockticker])
+        @news = @client.news(params[:stockticker], 3)
+        @quote = @client.quote(params[:stockticker])
+
     end
+
 
 end

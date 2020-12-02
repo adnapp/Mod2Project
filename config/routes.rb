@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   get "/stocks/percent", to: "stocks#percent", as: "stock_percent"
   get "/stocks/:stockticker", to: "stocks#show", as: "stock_show"
   get "/portfolios/new/:ticker", to: "portfolios#new", as: "stock_buy"
+
+  delete "/sessions/logout", to: 'sessions#logout', as: 'logout'
+  get "/sessions/new", to: 'sessions#new', as: 'new_login'
+  post '/sessions/login', to: 'sessions#login', as: 'login'
 end

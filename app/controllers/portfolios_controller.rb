@@ -3,7 +3,7 @@ class PortfoliosController < ApplicationController
 
 
     def show 
-
+       
     end
 
     def new
@@ -19,13 +19,18 @@ class PortfoliosController < ApplicationController
     end
 
     def index
-        @key_stats = @client.key_stats('MSFT')
-        @company = @client.company('MSFT')
-        @news = @client.news('MSFT', 3)
-        @quote = @client.quote('MSFT')
+        @positions = [["APPL", 25, 225.34], ["MSFT", 15, 27.53], ["GOOG", 10, 335.15]]
+        # @key_stats = @client.key_stats('MSFT')
+        # @company = @client.company('MSFT')
+        # @news = @client.news('MSFT', 3)
+        # @quote = @client.quote('MSFT')
+        @total = 0
+        @positions.each do |t|
+            @p = t[1] * t[2]
+            @total += @p
+        end 
+        @total
     end
-
-
 
     private 
 

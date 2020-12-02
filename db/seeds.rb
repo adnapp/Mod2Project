@@ -37,5 +37,4 @@ client = IEX::Api::Client.new(
     secret_token: 'secret_token',
     endpoint: 'https://sandbox.iexapis.com/v1'
 )
-# binding.pry
-
+binding.pry

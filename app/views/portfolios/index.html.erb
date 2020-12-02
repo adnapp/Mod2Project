@@ -1,1 +1,13 @@
 <!-- index through all the stocks held and list amount-->
+<% @positions.each do |t| %>
+<p>Stock: <%= t[0] %></p>
+<p>Quantity: <%= t[1] %></p>
+<p>Price: <%= t[2] %></p>
+<p>Total: <%= t[1] * t[2] %></p>
+<br>
+<% end %>
+<h3>Account Total: <%= @total %></h3>
+
+
+
+

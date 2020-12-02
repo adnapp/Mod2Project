@@ -7,8 +7,7 @@ class StocksController < ApplicationController
         #dropdown of client.stock_market_list(:mostactive) -- GET LIST. see what options we have
         #
 
-        @stocks = @client.stock_market_list(:mostactive)
-
+        lists
     end
 
     def show  #shows individual stocks  
@@ -27,8 +26,27 @@ class StocksController < ApplicationController
             @quote = @client.quote(params[:stockticker])
             @ticker = params[:stockticker]
         end
+    end
+
+    def active
+        lists
     end 
 
+    def gainers 
+        lists
+    end 
+
+    def losers
+        lists
+    end 
+
+    def volume 
+        lists
+    end
+
+    def percent 
+        lists
+    end 
 
 private
     def api_client
@@ -38,6 +56,14 @@ private
             endpoint: 'https://sandbox.iexapis.com/v1'
         )
     end
+
+    def lists
+        @active = @client.stock_market_list(:mostactive)
+        @gainers = @client.stock_market_list(:gainers)
+        @losers = @client.stock_market_list(:losers)
+        @volume = @client.stock_market_list(:iexvolume)
+        @percent = @client.stock_market_list(:iexpercent)
+    end 
     
     
 end

@@ -1,8 +1,12 @@
 <h3><%= @company.company_name %></h3>
-# <p>Price: <%= @quote.latest_price %></p>
-# <p>52 Week High: <%= @key_stats.week_52_high %></p>
-# <p>52 Week Low: <%= @key_stats.week_52_low %></p>
-# <p>Market Cap: <%= @key_stats.market_cap %></p>
-# <p>EPS: <%= @key_stats.ttm_eps %></p>
-# <p>Divident Yield: <%= @key_stats.dividend_yield %></p>
+ <p>Price: <%= @quote.latest_price %></p>
+ <p>52 Week High: <%= @key_stats.week_52_high %></p>
+ <p>52 Week Low: <%= @key_stats.week_52_low %></p>
+ <p>Market Cap: <%= @key_stats.market_cap %></p>
+ <p>EPS: <%= @key_stats.ttm_eps %></p>
+ <p>Divident Yield: <%= @key_stats.dividend_yield %></p>
+
+
+ <br><br>
+ <p><%= link_to "Purchase #{@ticker}", stock_buy_path(@ticker) %>  </p>
 

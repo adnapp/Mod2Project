@@ -1,21 +1,18 @@
 
 <!--form to choose gainers/losers-->
-<%= form_for @stocks do |f| %>
-<%= f.collection_select :stocks, @active, @gainer, @loser, @volume, @percent :name %>
-<%= f.submit %>
-<%end%>
-
+<h1>Top 10 most active stocks today</h1>
+<ol>
 <% @stocks.each do |stock|%>
-<p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>
+<li><%= link_to stock.company_name, stock_show_path(stock.symbol) %></li>
 <%end%>
+</ol>
 
 <!-- search bar, sending same info back. form tag, repeat above-->
 
 <br>
-<%= form_tag stock_show_path(:search), method: :get do %>
-  <%= label_tag "Search for a stock by ticker:"%>
-  <%= text_field_tag :stockticker %>
-
+<%= form_tag stock_show_path(:search), method: :get do %> <!--how do we make the stockticker param hold the input? now the search param is holding the input, thus the logic in stocks controller-->
+  <%= label_tag "Search for a stock by ticker"%>
+  <%= search_field_tag :search %>
   <%= submit_tag("Search")  %>
-
 <%end%>
+

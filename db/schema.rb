@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(version: 2020_12_02_205937) do
   end
 
   create_table "stocks", force: :cascade do |t|
+    t.string "symbol"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
 end

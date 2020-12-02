@@ -12,8 +12,10 @@ class PortfoliosController < ApplicationController
     end
 
     def create 
-        byebug
+        # byebug
         @portfolio = Portfolio.create(portfolio_params)
+
+        
     end
 
     def index

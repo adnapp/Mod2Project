@@ -2,9 +2,15 @@
 <h1>Stocks Currently Held</h1>
 
 <% Portfolio.unique_tickers.each do |key, value| %>
-<p><%= "Stock: #{key}. Quantity #{value}"%></p>
+<p><%= link_to @client.company(key).company_name, stock_show_path(key)%><p>
+<p><%="Quantity #{value}. Current price: $ #{@client.price(key)}"%></p>
 <%end%>
-<h3>Account Total using new: <%= Portfolio.total_portfolio_value %></h3>
+<br><br>
+<h3>Total purchase price of stocks: $ <%= @pp_total %></h3>
+<h3>Current value of stocks: $ <%= @live_total %></h3>
+
+<h3>Total gain/loss <%= @percent_change %>%</h3>
+
 
 
 

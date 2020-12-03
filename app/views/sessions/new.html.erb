@@ -1,3 +1,9 @@
+<% if flash[:errors] %>
+<%= flash[:errors] %>
+<% end %>
+
+<h3>Login</h3>
+ 
   <%= form_for :session, url: login_path do |f| %>
    
       <%= f.label :username %>
@@ -12,3 +18,5 @@
     <%= f.submit "Login" %>
     
   <% end %>
+  <br>
+  <h4><%= link_to "Create New Account", new_investor_path %></h4>

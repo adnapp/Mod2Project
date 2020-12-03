@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
         cookies[:investor_id] = investor.id
         redirect_to investor_path(investor)
       else
-        flash[:errors] = "Username or Password are not valid" 
+        flash[:errors] = "Username or Password is not valid" 
         redirect_to new_login_path
       end 
     end 

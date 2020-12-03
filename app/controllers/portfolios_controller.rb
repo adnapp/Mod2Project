@@ -12,12 +12,16 @@ class PortfoliosController < ApplicationController
     end
 
     def create 
+        
+        # byebug
         @portfolio = Portfolio.create(portfolio_params)
         redirect_to portfolios_path
     end
 
     def index
-   
+        @live_total = Portfolio.total_portfolio_value.round(2)
+        @pp_total = Portfolio.total_portfolio_purchase_price.round(2)
+        @percent_change = (100* (@live_total-@pp_total)/@pp_total).round(2)
     end
 
     private 
@@ -32,5 +36,6 @@ class PortfoliosController < ApplicationController
             secret_token: 'secret_token',
             endpoint: 'https://sandbox.iexapis.com/v1'
         )
+
     end
 end

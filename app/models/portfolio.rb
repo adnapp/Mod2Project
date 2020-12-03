@@ -16,16 +16,26 @@ class Portfolio < ApplicationRecord
         Portfolio.find_each do |trxn| #this gives us key value stock / quantity
             stock = {}
                 if trxn.buysell
+<<<<<<< HEAD
                     stock[trxn.stock.name] = trxn.quantity 
                 else
                     stock[trxn.stock.name] = trxn.quantity * -1
+=======
+                    stock[trxn.stock.ticker] = trxn.quantity 
+                else
+                    stock[trxn.stock.ticker] = trxn.quantity * -1
+>>>>>>> master
                 end
             stocklisting << stock
         end
         stocklisting.inject{|a,b| a.merge(b){|_,x,y| x + y}} #this combines hashes with same name
     end
 
+<<<<<<< HEAD
     def self.total_portfolio_value
+=======
+    def self.total_portfolio_purchase_price
+>>>>>>> master
         @orders = Portfolio.all
         @total=0
         @orders.each do |t|
@@ -39,5 +49,36 @@ class Portfolio < ApplicationRecord
         end 
         @total
     end
+<<<<<<< HEAD
+=======
+
+    def self.total_portfolio_value 
+        @orders = Portfolio.all
+        self.api_client
+        @total=0
+        @orders.each do |t|
+            if t.buysell #if stock is bought, this boolean is true
+                
+                p = t[:quantity] * @client.price(t.stock.ticker)
+                @total += p
+            else
+                p = t[:quantity] * @client.price(t.stock.ticker) 
+                @total -= p
+            end
+        end 
+        @total
+    end
+
+
+
+    def self.api_client
+        @client = IEX::Api::Client.new(
+            publishable_token: 'Tpk_28e84a02533f42b19d47d6545f0083c3',
+            secret_token: 'secret_token',
+            endpoint: 'https://sandbox.iexapis.com/v1'
+        )
+        
+    end
+>>>>>>> master
 
 end

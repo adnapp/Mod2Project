@@ -16,16 +16,26 @@ class Portfolio < ApplicationRecord
         Portfolio.find_each do |trxn| #this gives us key value stock / quantity
             stock = {}
                 if trxn.buysell
+<<<<<<< HEAD
+                    stock[trxn.stock.name] = trxn.quantity 
+                else
+                    stock[trxn.stock.name] = trxn.quantity * -1
+=======
                     stock[trxn.stock.ticker] = trxn.quantity 
                 else
                     stock[trxn.stock.ticker] = trxn.quantity * -1
+>>>>>>> master
                 end
             stocklisting << stock
         end
         stocklisting.inject{|a,b| a.merge(b){|_,x,y| x + y}} #this combines hashes with same name
     end
 
+<<<<<<< HEAD
+    def self.total_portfolio_value
+=======
     def self.total_portfolio_purchase_price
+>>>>>>> master
         @orders = Portfolio.all
         @total=0
         @orders.each do |t|
@@ -39,6 +49,8 @@ class Portfolio < ApplicationRecord
         end 
         @total
     end
+<<<<<<< HEAD
+=======
 
     def self.total_portfolio_value 
         @orders = Portfolio.all
@@ -67,5 +79,6 @@ class Portfolio < ApplicationRecord
         )
         
     end
+>>>>>>> master
 
 end

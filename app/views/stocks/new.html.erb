@@ -1,3 +1,18 @@
+<h3>Create Stock</h3>
+
+
+  <%= form_for @stock do |f| %>
+  <%= f.label :symbol %>
+  <%= f.text_field :symbol %><br><br>
+  <%= f.label :price %>
+  <%= f.text_field :price, :placeholder => @number %><br><br>
+  <br>
+  <br>
+  <%= f.submit "Create Stock"%>
+
+  
+
+  <% end %>
 
 <h4>Stock you want to add to list:</h4><br>
 

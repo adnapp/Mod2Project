@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_191419) do
     t.string "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
   create_table "portfolios", force: :cascade do |t|

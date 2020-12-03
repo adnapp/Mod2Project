@@ -1,4 +1,5 @@
 class StocksController < ApplicationController
+    skip_before_action :authorized
     before_action :api_client
 
     def index
@@ -22,13 +23,13 @@ class StocksController < ApplicationController
 
     def show  #shows individual stocks  
         # 
-        
         if params[:search]
             @key_stats = @client.key_stats(params[:search])
             @company = @client.company(params[:search])
             @news = @client.news(params[:search], 3)
             @quote = @client.quote(params[:search])
             @ticker = params[:search]
+          
         else
             @key_stats = @client.key_stats(params[:stockticker])
             @company = @client.company(params[:stockticker])
@@ -37,6 +38,16 @@ class StocksController < ApplicationController
             @ticker = params[:stockticker]
         end
     end
+
+    def new
+        @stock = Stock.new
+        @number = Random.rand(500)
+    end
+
+    def create
+        stock = Stock.create(stock_params)
+        redirect_to stock_new_path 
+    end 
 
     def active
         lists
@@ -58,6 +69,14 @@ class StocksController < ApplicationController
         lists
     end 
 
+    def lists
+        @active = @client.stock_market_list(:mostactive)
+        @gainers = @client.stock_market_list(:gainers)
+        @losers = @client.stock_market_list(:losers)
+        @volume = @client.stock_market_list(:iexvolume)
+        @percent = @client.stock_market_list(:iexpercent)
+    end 
+
 private
     def api_client
         @client = IEX::Api::Client.new(
@@ -67,12 +86,8 @@ private
         )
     end
 
-    def lists
-        @active = @client.stock_market_list(:mostactive)
-        @gainers = @client.stock_market_list(:gainers)
-        @losers = @client.stock_market_list(:losers)
-        @volume = @client.stock_market_list(:iexvolume)
-        @percent = @client.stock_market_list(:iexpercent)
+    def stock_params 
+        params.require(:stock).permit(:symbol, :price, :quantity)
     end 
 
     def stock_params

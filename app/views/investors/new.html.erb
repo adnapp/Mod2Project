@@ -1,0 +1,29 @@
+<h3>Create An Account</h3>
+
+  <% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+      </ul>
+  <% end %>
+
+<%= form_for @investor do |f| %>
+  <h5><%= f.label :name %></h5>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+  <h5><%= f.label :username %></h5>
+  <%= f.text_field :username %>
+  <br>
+  <br>
+  <h5><%= f.label :password %></h5>
+  <%= f.password_field :password %>
+  <br>
+  <br>
+  <h5><%= f.label :bio %></h5>
+  <%= f.text_area :bio, size: "20x6" %>
+  <br>
+  <br>
+  <%= f.submit "Create Account"%>
+  <% end %>

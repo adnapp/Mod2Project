@@ -1,14 +1,17 @@
 <!--# Within here, stock will be added to portfolio. investor adds ticker, as well as quantity. -->
 <!--this will save a transaction in portfolio (buy/sell, quantity, price, ticker)-->
 <!--adding ability to submit stock and investor id-->
+<<<<<<< HEAD
+<%@portfolio.unique_tickers%>
+=======
 
+>>>>>>> master
 
 <%@current_price = @client.quote(params[:ticker]).latest_price%>
 
 <h2>Purchase shares of <%=@client.company(params[:ticker]).company_name%> </h2>
 
 <h4>Current Price: <%=@current_price%> </h4>
-
 <%=form_for @portfolio do |f|%>
 
 <%= f.label :quantity %>

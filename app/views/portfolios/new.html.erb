@@ -18,7 +18,7 @@
 <%= f.collection_select :investor_id, Investor.all, :id, :name %><br><br>
 
 <%= f.label :stock_id%>
-<%= f.collection_select :stock_id, Stock.all, :id, :name %><br><br>
+<%= f.collection_select :stock_id, Stock.all, :id, :ticker %><br><br>
 <!--need to search for the stock that is showing on this-->
 
 

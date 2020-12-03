@@ -1,15 +1,14 @@
 <!-- index through all the stocks held and list amount, want to only have unique and avg price-->
 
 <% @positions.each do |t| %>
+    
     <p>Stock: <%= t.stock.name %></p>
     <p>Price: <%= t[:price] %></p>
         <% if t.buysell%>
             <p>Quantity: <%= t[:quantity] %></p>
-
             <p>Txn: +<%= t[:price] * t[:quantity] %></p>
         <%else%>
             <p>Quantity: <%= t[:quantity] *-1 %></p>
-
             <p>Txn: <%= t[:price] * t[:quantity] *-1 %></p>
         <%end%>
     <p></p>

@@ -7,8 +7,16 @@ class Portfolio < ApplicationRecord
 #for total. we want average price paid and # of shares
 # if name isnt there, add it to the array. conditional inside: if it's a buy, then 
 #if name is there
-    # def unique_tickers
-    #   self
-    # end
+
+@orders = Portfolio.all
+
+arraystock = []
+    def unique_tickers
+        @orders.each do |order|
+            order.stock.name
+        end
+        
+        
+    end
 
 end

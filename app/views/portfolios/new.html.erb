@@ -1,7 +1,7 @@
 <!--# Within here, stock will be added to portfolio. investor adds ticker, as well as quantity. -->
 <!--this will save a transaction in portfolio (buy/sell, quantity, price, ticker)-->
 <!--adding ability to submit stock and investor id-->
-<%@portfolio.unique_tickers%>
+
 
 <%@current_price = @client.quote(params[:ticker]).latest_price%>
 
@@ -21,8 +21,12 @@
 <%= f.collection_select :stock_id, Stock.all, :id, :name %><br><br>
 <!--need to search for the stock that is showing on this-->
 
-<%= hidden_field_tag 'price' , @current_price.to_f  %>
-<%= hidden_field_tag 'buysell' , true  %>
+
+<!--<%= hidden_field_tag :price , @current_price.to_f  %>-->
+<!--<%= hidden_field_tag 'buysell' , true  %>-->
+<%= f.hidden_field :buysell, value: true %>
+<%= f.hidden_field :price, value: @current_price.to_f %>
+
 
 <%= f.submit "Purchase Share(s)"%>
 <%end%>

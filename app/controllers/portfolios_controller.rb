@@ -11,7 +11,8 @@ class PortfoliosController < ApplicationController
     end
 
     def create 
-        byebug
+        
+        # byebug
         @portfolio = Portfolio.create(portfolio_params)
         redirect_to portfolios_path
     end

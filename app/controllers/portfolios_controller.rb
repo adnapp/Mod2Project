@@ -17,29 +17,21 @@ class PortfoliosController < ApplicationController
     end
 
     def index
-        @positions = Portfolio.all
-        @total = 0
-        @newhash = {}
-        @positions.each do |t|
-            if t.buysell #if stock is bought, this boolean is true
-                @p = t[:quantity] * t[:price]
-                @total += @p
-            else
-                @p = t[:quantity] * t[:price] 
-                @total -= @p
-            end
+        @portfolio = Portfolio.all
+        # @positions = Portfolio.all
+        # @total = 0
+        # @newhash = {}
+        # @positions.each do |t|
+        #     if t.buysell #if stock is bought, this boolean is true
+        #         @p = t[:quantity] * t[:price]
+        #         @total += @p
+        #     else
+        #         @p = t[:quantity] * t[:price] 
+        #         @total -= @p
+        #     end
 
-            # if 
-            #     # !@newhash[:name] == t.name
-            #     #     if t.buysell
-
-            #     #     end
-            # else
-
-            # end
-
-        end 
-        @total
+        # end 
+        # @total
     end
 
     private 

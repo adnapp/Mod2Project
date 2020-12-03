@@ -7,16 +7,36 @@ class Portfolio < ApplicationRecord
 #for total. we want average price paid and # of shares
 # if name isnt there, add it to the array. conditional inside: if it's a buy, then 
 #if name is there
+#stocks = [{"name" => "tesla", "quantity" => 4}, {"name" => "apple", "quantity" => 3}]
 
 @orders = Portfolio.all
 
-arraystock = []
     def unique_tickers
-        @orders.each do |order|
-            order.stock.name
+        stocklisting = []
+        Portfolio.find_each do |trxn| #this gives us key value stock / quantity
+            stock = {}
+                if trxn.buysell
+                    stock[trxn.stock.name] = trxn.quantity 
+                else
+                    stock[trxn.stock.name] = trxn.quantity * -1
+                end
+            stocklisting << stock
         end
-        
-        
+        stocklisting.inject{|a,b| a.merge(b){|_,x,y| x + y}} #this combines hashes with same name
+    end
+
+    def total_portfolio_value
+        @total=0
+        @orders.each do |t|
+            if t.buysell #if stock is bought, this boolean is true
+                p = t[:quantity] * t[:price]
+                @total += p
+            else
+                p = t[:quantity] * t[:price] 
+                @total -= p
+            end
+        end 
+        @total
     end
 
 end

@@ -1,5 +1,4 @@
 class PortfoliosController < ApplicationController
-    skip_before_action :authorized
     before_action :api_client
 
 

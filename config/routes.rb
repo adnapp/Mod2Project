@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "/stocks/percent", to: "stocks#percent", as: "stock_percent"
   get "/stocks/:stockticker", to: "stocks#show", as: "stock_show"
   get "/portfolios/new/:ticker", to: "portfolios#new", as: "stock_buy"
-  get "/portfolio/filledorders", to: "portfolio#filledorders", as: "stock_filled_orders"
+  get "/portfolios/filledorders", to: "portfolios#filledorders", as: "stock_filled_orders"
 
 
   delete "/sessions/logout", to: 'sessions#logout', as: 'logout'

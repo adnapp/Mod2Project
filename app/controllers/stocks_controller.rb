@@ -11,6 +11,16 @@ class StocksController < ApplicationController
         lists
     end
 
+    def new
+        @stock = Stock.new
+    end
+
+    def create
+        @stock = Stock.create(stock_params)
+        # byebug
+        redirect_to stock_buy_path(@stock.ticker)
+    end
+
     def show  #shows individual stocks  
         # 
         if params[:search]
@@ -65,6 +75,10 @@ private
         @volume = @client.stock_market_list(:iexvolume)
         @percent = @client.stock_market_list(:iexpercent)
     end 
+
+    def stock_params
+        params.require(:stock).permit(:ticker)
+    end
     
     
 end

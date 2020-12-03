@@ -3,7 +3,7 @@ class PortfoliosController < ApplicationController
     before_action :api_client
 
 
-    def show 
+    def show #may not need this
        
     end
 
@@ -12,35 +12,16 @@ class PortfoliosController < ApplicationController
     end
 
     def create 
-        byebug
+        
+        # byebug
         @portfolio = Portfolio.create(portfolio_params)
         redirect_to portfolios_path
     end
 
     def index
-        @positions = Portfolio.all
-        @total = 0
-        @newhash = {}
-        @positions.each do |t|
-            if t.buysell #if stock is bought, this boolean is true
-                @p = t[:quantity] * t[:price]
-                @total += @p
-            else
-                @p = t[:quantity] * t[:price] 
-                @total -= @p
-            end
-
-            # if 
-            #     # !@newhash[:name] == t.name
-            #     #     if t.buysell
-
-            #     #     end
-            # else
-
-            # end
-
-        end 
-        @total
+        @live_total = Portfolio.total_portfolio_value.round(2)
+        @pp_total = Portfolio.total_portfolio_purchase_price.round(2)
+        @percent_change = (100* (@live_total-@pp_total)/@pp_total).round(2)
     end
 
     private 
@@ -55,5 +36,6 @@ class PortfoliosController < ApplicationController
             secret_token: 'secret_token',
             endpoint: 'https://sandbox.iexapis.com/v1'
         )
+
     end
 end

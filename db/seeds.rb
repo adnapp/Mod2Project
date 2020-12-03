@@ -24,10 +24,10 @@ Investor.create({
 })
 
 Stock.create({
-    name: "Tesla",
+    ticker: "TSLA"
 })
 Stock.create({
-    name: "Apple",
+    ticker: "AAPL"
 })
 
 i1 = Investor.first

@@ -1,4 +1,16 @@
 
-<% form_tag stocks_path%>
-<label>Stock you want to buy title:</label><br>
-  <input type="text" id="post_title" name="post[title]"><br>
+<h4>Stock you want to add to list:</h4><br>
+
+
+<%= form_for @stock do |f|%>
+
+
+  <%= f.label :ticker %>
+  <%= f.text_field :ticker%><br><br>
+
+    
+  <%=f.submit "add to watch" %>
+
+<%end%>
+
+  <!--<input type="text" id="post_title" name="post[title]"><br>-->

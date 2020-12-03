@@ -3,7 +3,7 @@ class PortfoliosController < ApplicationController
 
 
     def show #may not need this
-       
+       @positions = Portfolio.all
     end
 
     def new
@@ -21,6 +21,10 @@ class PortfoliosController < ApplicationController
         @live_total = Portfolio.total_portfolio_value.round(2)
         @pp_total = Portfolio.total_portfolio_purchase_price.round(2)
         @percent_change = (100* (@live_total-@pp_total)/@pp_total).round(2)
+    end
+
+    def filledorders
+
     end
 
     private 

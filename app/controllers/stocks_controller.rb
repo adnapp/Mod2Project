@@ -15,8 +15,8 @@ class StocksController < ApplicationController
     end
 
     def create
+        byebug
         @stock = Stock.create(stock_params)
-        # byebug
         redirect_to stock_buy_path(@stock.ticker)
     end
 

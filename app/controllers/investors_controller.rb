@@ -10,7 +10,7 @@ class InvestorsController < ApplicationController
 
         if investor.valid?
           cookies[:investor_id] = investor.id
-          redirect_to investor_path(:investor_id)
+          redirect_to investor_path(investor)
         else
           flash[:errors] = investor.errors.full_messages
           redirect_to new_investor_path 

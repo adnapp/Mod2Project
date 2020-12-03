@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   
       if investor && investor.authenticate(params[:session][:password])
         cookies[:investor_id] = investor.id
-        redirect_to investors_path(@investor)
+        redirect_to investor_path(investor)
       else
         flash[:errors] = "Username or Password are not valid" 
         redirect_to new_login_path

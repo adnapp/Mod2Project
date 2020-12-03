@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :investors
   resources :portfolios, except: [:new]
   
+  get "stocks/new", to: "stocks#new", as: "stock_new"
   get "/stocks/active", to: "stocks#active", as: "stock_active"
   get "/stocks/gainers", to: "stocks#gainers", as: "stock_gainers"
   get "/stocks/losers", to: "stocks#losers", as: "stock_losers"
@@ -15,4 +16,6 @@ Rails.application.routes.draw do
   delete "/sessions/logout", to: 'sessions#logout', as: 'logout'
   get "/sessions/new", to: 'sessions#new', as: 'new_login'
   post '/sessions/login', to: 'sessions#login', as: 'login'
+
+  # get "investors/new", to: "investors#new", as: "investors_new"
 end

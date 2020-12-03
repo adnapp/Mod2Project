@@ -3,7 +3,7 @@ class PortfoliosController < ApplicationController
     before_action :api_client
 
 
-    def show 
+    def show #may not need this
        
     end
 
@@ -12,35 +12,12 @@ class PortfoliosController < ApplicationController
     end
 
     def create 
-        byebug
         @portfolio = Portfolio.create(portfolio_params)
         redirect_to portfolios_path
     end
 
     def index
-        @positions = Portfolio.all
-        @total = 0
-        @newhash = {}
-        @positions.each do |t|
-            if t.buysell #if stock is bought, this boolean is true
-                @p = t[:quantity] * t[:price]
-                @total += @p
-            else
-                @p = t[:quantity] * t[:price] 
-                @total -= @p
-            end
-
-            # if 
-            #     # !@newhash[:name] == t.name
-            #     #     if t.buysell
-
-            #     #     end
-            # else
-
-            # end
-
-        end 
-        @total
+   
     end
 
     private 

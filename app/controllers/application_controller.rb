@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end 
 
   def authorized
-    redirect_to investor_new_path unless @current_investor
+    redirect_to new_investor_path unless @current_investor
   end 
 
 end  

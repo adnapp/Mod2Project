@@ -7,3 +7,5 @@
 <% @volume.each do |stock|%>
 <p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>
 <%end%>
+<br>
+<%= link_to "logout", logout_path, method: :delete %>

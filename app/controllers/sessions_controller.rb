@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   
     def logout
       cookies.delete(:investor_id)
-      redirect_to investor_new_path
+      redirect_to new_investor_path
     end 
   
     def new 

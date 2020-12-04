@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html\
   resources :stocks, except: [:show, :active]
   resources :investors
-  resources :portfolios, except: [:new]
+  resources :portfolios, except: [:new, :show]
   
   get "stocks/new", to: "stocks#new", as: "stock_new"
 
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/stocks/:stockticker", to: "stocks#show", as: "stock_show"
   get "/portfolios/new/:ticker", to: "portfolios#new", as: "stock_buy"
   get "/portfolios/filledorders", to: "portfolios#filledorders", as: "stock_filled_orders"
+  get "/portfolios/sell/:ticker", to: "portfolios#sell", as: "stock_sell"
 
 
   delete "/sessions/logout", to: 'sessions#logout', as: 'logout'

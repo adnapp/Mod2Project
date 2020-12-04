@@ -1,9 +1,13 @@
 <!-- index through all the stocks held and list amount, want to only have unique and avg price-->
 <h1>Current Holdings</h1>
 
-<% Portfolio.unique_tickers.each do |key, value| %>
+<% @unique.each do |key, value| %>
+<%if value != 0%>
 <p><%= link_to @client.company(key).company_name, stock_show_path(key)%><p>
 <p><%="Quantity #{value}. Current price: $ #{@client.price(key)}"%></p>
+<p><%= link_to "buy", stock_buy_path(key)%> 
+<%= link_to "sell", stock_sell_path(key)%> </p> <!--find way to pass quantity in params to sell-->
+<%end%>
 <%end%>
 <br><br>
 <h3>Total purchase price of stocks: <%= number_to_currency(@pp_total) %></h3>

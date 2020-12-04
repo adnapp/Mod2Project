@@ -11,9 +11,9 @@ class PortfoliosController < ApplicationController
     end
 
     def create 
-        
+        @current_investor.portfolios << Portfolio.create(portfolio_params)
         # byebug
-        @portfolio = Portfolio.create(portfolio_params)
+        # @portfolio = Portfolio.create(portfolio_params)
         redirect_to portfolios_path
     end
 
@@ -30,7 +30,7 @@ class PortfoliosController < ApplicationController
     private 
 
     def portfolio_params
-        params.require(:portfolio).permit(:investor_id, :stock_id, :price, :quantity, :buysell)
+        params.require(:portfolio).permit(:stock_id, :price, :quantity, :buysell)
     end
 
     def api_client

@@ -11,8 +11,7 @@
 <%= f.label :quantity %>
 <%= f.number_field :quantity%><br><br>
 
-<%= f.label :investor_id%>
-<%= f.collection_select :investor_id, Investor.all, :id, :name %><br><br>
+
 
 <%= f.label :stock_id%> 
 <%= f.collection_select :stock_id, Stock.all, :id, :ticker %><br><br>
@@ -37,6 +36,8 @@
 <%end%>
 
 
+<br>
+<%= link_to "logout", logout_path, method: :delete %>
 
 
 

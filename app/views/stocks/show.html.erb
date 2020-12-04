@@ -1,5 +1,7 @@
+<marquee><%= @company.company_name %> - Trading at: $<%= @quote.latest_price %></marquee>
+
 <h3><%= @company.company_name %></h3>
- <p>Price: <%= @quote.latest_price %></p>
+ <p>Price: $<%= @quote.latest_price %></p>
  <p>52 Week High: <%= @key_stats.week_52_high %></p>
  <p>52 Week Low: <%= @key_stats.week_52_low %></p>
  <p>Market Cap: <%= @key_stats.market_cap %></p>
@@ -15,5 +17,7 @@
 
  <p><%= button_to "Purchasebutton", stock_buy_path(@ticker), method: "get"        %> </p>
  <p><%= link_to 'Search for a new stock to purchase', stocks_path %> </p>
+ <br>
+<%= link_to "logout", logout_path, method: :delete %>
 
 

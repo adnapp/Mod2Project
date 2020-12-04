@@ -1,4 +1,11 @@
+<marquee>
+<% @losers.each do |stock| %>
+<%= stock.company_name %> - 
+<% end %>
+</marquee>
 <h3>Biggest Losers</h3>
 <% @losers.each do |stock|%>
 <p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>
 <%end%>
+<br>
+<%= link_to "logout", logout_path, method: :delete %>

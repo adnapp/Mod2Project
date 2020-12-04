@@ -30,7 +30,6 @@ class InvestorsController < ApplicationController
     #   else
     #      redirect_to new_investor_path 
     #   end 
-  
     end
 
     def destroy

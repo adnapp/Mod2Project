@@ -1,21 +1,18 @@
 <!--# Within here, stock will be added to portfolio. investor adds ticker, as well as quantity. -->
 <!--this will save a transaction in portfolio (buy/sell, quantity, price, ticker)-->
 <!--adding ability to submit stock and investor id-->
-<%@current_price = @client.quote(params[:ticker]).latest_price%>
+<%@current_price = (@client.quote(params[:ticker]).latest_price)%>
 
 <h2>Purchase shares of <%=@client.company(params[:ticker]).company_name%> </h2>
 
-<h4>Current Price: <%=@current_price%> </h4>
+<h4>Current Price: <%=number_to_currency(@current_price)%> </h4>
 
 <%=form_for @portfolio do |f|%>
 <%= f.label :quantity %>
 <%= f.number_field :quantity%><br><br>
 
-
-
-<%= f.label :stock_id%> 
-<%= f.collection_select :stock_id, Stock.all, :id, :ticker %><br><br>
-<!--instead of selecting the stockid from this screen, we want this to be automatically done on submit-->
+<!--<%= f.label :stock_id%> -->
+<!--<%= f.collection_select :stock_id, Stock.all, :id, :ticker %><br><br>-->
 
 <%= f.hidden_field :buysell, value: true %>
 <%= f.hidden_field :price, value: @current_price.to_f %>
@@ -25,15 +22,6 @@
 <%= f.submit "Purchase Share(s)"%>
 <%end%>
 <br><br>
-
-<%= form_with model: @portfolio do |portfolio_form|%>
-    <%= portfolio_form.label :quantity %>
-    <%=portfolio_form.number_field :quantity %><br><br>
-    <%=portfolio_form.fields_for :stock do |stock|%>  <!--looking to create stock here-->
-        <%= stock.hidden_field :ticker, value: params[:ticker]%>
-    <%end%>
-    <%=portfolio_form.submit "Purchase shares (new)"%>
-<%end%>
 
 
 <br>

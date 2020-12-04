@@ -93,9 +93,9 @@ private
         )
     end
 
-    def stock_params 
-        params.require(:stock).permit(:symbol, :price, :quantity)
-    end 
+    # def stock_params 
+    #     params.require(:stock).permit(:symbol, :price, :quantity)
+    # end 
 
     def stock_params
         params.require(:stock).permit(:ticker)

@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+ body {
+    background-color: linen;
+    text-align: center;
+    text-shadow: 1px 1px;
+  }
+  a:link, a:visited {
+    background-color: gainsboro;
+    color: dimgray;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    outline-style: ridge;
+  }
+  a:hover, a:active {
+    background-color: ghostwhite;
+  }
+  .double {outline-style: double;}
+  .solid {border-style: solid;}
+  div {
+    width: 500px;
+    padding: 50px;
+    margin: 20px;
+    margin:0px auto;
+    background-color: lightgray;
+    outline-style: double;
+  } 
+  marquee.back {
+      background-color: gainsboro;
+  }
+  .head {
+    background-color: black;
+    border-style: double;
+    color: firebrick;
+    font-size: 45px;
+    font-family: fantasy;
+} 

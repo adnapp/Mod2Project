@@ -1,11 +1,28 @@
-<marquee>
+<marquee class="back double">
 <% @percent.each do |stock| %>
 <%= stock.company_name %> - 
 <% end %>
 </marquee>
-<h3>Largest Percentage</h3>
+<br>
+<br>
+<div>
+<h1>Largest Percentage</h1>
+<br>
 <% @percent.each do |stock|%>
 <p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>
 <%end%>
+</div>
 <br>
-<%= link_to "logout", logout_path, method: :delete %>
+<div>
+<%= form_tag stock_show_path(:search), method: :get do %>
+  <h2><%= label_tag "Search for a stock by ticker"%></h2>
+  <br>
+  <%= search_field_tag :search %>
+    <%= submit_tag("Search")  %>
+ <%end%>
+</div>
+<br>
+<%= link_to "Main Page", stocks_path %>
+<br>
+<br>
+<%= link_to "Logout", logout_path, method: :delete %>

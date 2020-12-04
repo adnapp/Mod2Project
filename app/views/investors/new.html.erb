@@ -1,11 +1,11 @@
-<h3>Create An Account</h3>
+<h2>Create An Account</h2>
 
   <% if flash[:errors] %>
   <ul>
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>
-      <% end %>
-      </ul>
+    <% end %>
+  </ul>
   <% end %>
 
 <%= form_for @investor do |f| %>
@@ -27,5 +27,6 @@
   <br>
   <%= f.submit "Create Account"%>
   <% end %>
+  <br>
   <br>
   <%= link_to "Already Have An Account?", new_login_path %>

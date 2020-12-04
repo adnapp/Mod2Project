@@ -2,21 +2,21 @@
 <%= flash[:errors] %>
 <% end %>
 
-<h3>Login</h3>
+<h2>Login</h2>
  
   <%= form_for :session, url: login_path do |f| %>
    
       <%= f.label :username %>
       <%= f.text_field :username %>
-   
-
+      <br>
+      <br>
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+      <br>
+      <br>
   
-        <%= f.label :password %>
-        <%= f.text_field :password %>
-
-
-    <%= f.submit "Login" %>
+  <%= f.submit "Login" %>
     
   <% end %>
   <br>
-  <h4><%= link_to "Create New Account", new_investor_path %></h4>
+  <h3><%= link_to "Create New Account", new_investor_path %></h3>

@@ -1,3 +1,8 @@
+<marquee>
+<% @volume.each do |stock| %>
+<%= stock.company_name %> - 
+<% end %>
+</marquee>
 <h3>Highest Volume</h3>
 <% @volume.each do |stock|%>
 <p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>

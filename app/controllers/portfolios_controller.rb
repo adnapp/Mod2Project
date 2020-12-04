@@ -11,16 +11,26 @@ class PortfoliosController < ApplicationController
     end
 
     def create 
+        #look up stock, returns nill if not in db
+        stock = Stock.all.find  {|stock| stock.ticker == params[:portfolio][:ticker]}
+
+        if !stock   #if not in db, set params 
+            stock = Stock.create(ticker: params[:portfolio][:ticker])
+        end
+
+        #need to add stock id to params
+        params[:portfolio][:stock_id] = stock.id
+
+        #then we create the portfolio
         @current_investor.portfolios << Portfolio.create(portfolio_params)
-        # byebug
         # @portfolio = Portfolio.create(portfolio_params)
         redirect_to portfolios_path
     end
 
     def index
         @live_total = Portfolio.total_portfolio_value.round(2)
-        @pp_total = Portfolio.total_portfolio_purchase_price.round(2)
-        @percent_change = (100* (@live_total-@pp_total)/@pp_total).round(2)
+        @pp_total = Portfolio.total_portfolio_purchase_price
+        @percent_change =  100 *(@live_total-@pp_total)/@pp_total
     end
 
     def filledorders

@@ -21,21 +21,29 @@ class StocksController < ApplicationController
     end
 
     def show  #shows individual stocks  
-        # 
-        if params[:search]
-            @key_stats = @client.key_stats(params[:search])
-            @company = @client.company(params[:search])
-            @news = @client.news(params[:search], 3)
-            @quote = @client.quote(params[:search])
-            @ticker = params[:search]
-          
-        else
-            @key_stats = @client.key_stats(params[:stockticker])
-            @company = @client.company(params[:stockticker])
-            @news = @client.news(params[:stockticker], 3)
-            @quote = @client.quote(params[:stockticker])
-            @ticker = params[:stockticker]
-        end
+        # byebug
+            if params[:search]
+                if @client.price(params[:search]) != nil #an attempt at error handling
+                    @key_stats = @client.key_stats(params[:search])
+                    @company = @client.company(params[:search])
+                    @news = @client.news(params[:search], 3)
+                    @quote = @client.quote(params[:search])
+                    @ticker = params[:search]
+                else
+                    redirect_to stocks_path
+                end
+            else
+                    @key_stats = @client.key_stats(params[:stockticker])
+                    @company = @client.company(params[:stockticker])
+                    @news = @client.news(params[:stockticker], 3)
+                    @quote = @client.quote(params[:stockticker])
+                    @ticker = params[:stockticker]
+                
+            end
+         
+            # redirect_to stocks_path
+
+        
     end
 
     def new
@@ -85,9 +93,9 @@ private
         )
     end
 
-    def stock_params 
-        params.require(:stock).permit(:symbol, :price, :quantity)
-    end 
+    # def stock_params 
+    #     params.require(:stock).permit(:symbol, :price, :quantity)
+    # end 
 
     def stock_params
         params.require(:stock).permit(:ticker)

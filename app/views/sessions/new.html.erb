@@ -7,11 +7,11 @@
   <%= form_for :session, url: login_path do |f| %>
    
       <%= f.label :username %>
-      <%= f.text_field :username %>
+      <%= f.text_field :username, autocomplete: "off" %>
       <br>
       <br>
       <%= f.label :password %>
-      <%= f.text_field :password %>
+      <%= f.password_field :password, autocomplete: "off" %>
       <br>
       <br>
   

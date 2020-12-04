@@ -1,7 +1,7 @@
 <marquee><%= @company.company_name %> - Trading at: $<%= @quote.latest_price %></marquee>
 
 <h3><%= @company.company_name %></h3>
- <p>Price: <%= @quote.latest_price %></p>
+ <p>Price: $<%= @quote.latest_price %></p>
  <p>52 Week High: <%= @key_stats.week_52_high %></p>
  <p>52 Week Low: <%= @key_stats.week_52_low %></p>
  <p>Market Cap: <%= @key_stats.market_cap %></p>

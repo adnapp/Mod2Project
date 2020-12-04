@@ -10,19 +10,19 @@
 
 <%= form_for @investor do |f| %>
   <h5><%= f.label :name %></h5>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, autocomplete: "off" %>
   <br>
   <br>
   <h5><%= f.label :username %></h5>
-  <%= f.text_field :username %>
+  <%= f.text_field :username, autocomplete: "off"%>
   <br>
   <br>
   <h5><%= f.label :password %></h5>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, autocomplete: "off" %>
   <br>
   <br>
   <h5><%= f.label :bio %></h5>
-  <%= f.text_area :bio, size: "20x6" %>
+  <%= f.text_area :bio, size: "20x6", autocomplete: "off"  %>
   <br>
   <br>
   <%= f.submit "Create Account"%>

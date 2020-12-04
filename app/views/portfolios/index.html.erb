@@ -1,4 +1,5 @@
 <!-- index through all the stocks held and list amount, want to only have unique and avg price-->
+<div>
 <h1>Current Holdings</h1>
 
 <% Portfolio.unique_tickers.each do |key, value| %>
@@ -10,12 +11,11 @@
 <h3>Current value of stocks: $ <%= @live_total %></h3>
 
 <h3>Total gain/loss <%= @percent_change %></h3>
-
-
-<p><%= link_to 'Search for a new stock to purchase', stocks_path %> </p>
-<p><%= link_to 'Past filled orders', stock_filled_orders_path %></p>
+</div>
 <br>
-<%= link_to "logout", logout_path, method: :delete %>
+<p><%= link_to 'Search for a new stock to purchase', stocks_path %></p>
+<p><%= link_to 'Past filled orders', stock_filled_orders_path %></p>
+<p><%= link_to "Logout", logout_path, method: :delete %></p>
 
 
 

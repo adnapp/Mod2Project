@@ -1,8 +1,9 @@
+<div>
 <% if flash[:errors] %>
 <%= flash[:errors] %>
 <% end %>
 
-<h2>Login</h2>
+<h1>Login</h1>
  
   <%= form_for :session, url: login_path do |f| %>
    
@@ -20,3 +21,4 @@
   <% end %>
   <br>
   <h3><%= link_to "Create New Account", new_investor_path %></h3>
+  </div>

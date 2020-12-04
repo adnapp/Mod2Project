@@ -1,6 +1,7 @@
-<marquee><%= @company.company_name %> - Trading at: $<%= @quote.latest_price %></marquee>
+<marquee class="back double"><%= @company.company_name %> - Trading at: $<%= @quote.latest_price %></marquee>
 
-<h3><%= @company.company_name %></h3>
+<h1><%= @company.company_name %></h1>
+<div class="double">
  <p>Price: $<%= @quote.latest_price %></p>
  <p>52 Week High: <%= @key_stats.week_52_high %></p>
  <p>52 Week Low: <%= @key_stats.week_52_low %></p>
@@ -9,15 +10,15 @@
  <%if  !@key_stats.dividend_yield == 0 %>
     <p>Dividend Yield: <%= @key_stats.dividend_yield %></p>
 <%end%>
+</div>
 
 
  <br><br>
- <p><%= link_to "Purchase #{@ticker}", stock_buy_path(@ticker) %>  </p> 
+ <p><%= link_to "Purchase #{@ticker}", stock_buy_path(@ticker) %></p> 
  <!--lets use this above link to try and create new stock  -->
-
- <p><%= button_to "Purchasebutton", stock_buy_path(@ticker), method: "get"        %> </p>
- <p><%= link_to 'Search for a new stock to purchase', stocks_path %> </p>
  <br>
-<%= link_to "logout", logout_path, method: :delete %>
+ <p><%= link_to 'Search for a new stock to purchase', stocks_path %></p>
+ <br>
+ <p><%= link_to "Logout", logout_path, method: :delete %></p>
 
 

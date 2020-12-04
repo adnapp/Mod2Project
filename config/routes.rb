@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   get "/portfolios/new/:ticker", to: "portfolios#new", as: "stock_buy"
   get "/portfolios/filledorders", to: "portfolios#filledorders", as: "stock_filled_orders"
 
-
   delete "/sessions/logout", to: 'sessions#logout', as: 'logout'
   get "/sessions/new", to: 'sessions#new', as: 'new_login'
   post '/sessions/login', to: 'sessions#login', as: 'login'

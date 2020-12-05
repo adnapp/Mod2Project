@@ -14,13 +14,15 @@
  *= require_self
  */
  body {
+    color: darkslategray;
     background-color: linen;
     text-align: center;
     text-shadow: 1px 1px;
+    font-family: monospace;
   }
   a:link, a:visited {
     background-color: gainsboro;
-    color: dimgray;
+    color: darkslategray;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
@@ -30,8 +32,11 @@
   a:hover, a:active {
     background-color: ghostwhite;
   }
+  
   .double {outline-style: double;}
+  
   .solid {border-style: solid;}
+  
   div {
     width: 500px;
     padding: 50px;
@@ -40,6 +45,7 @@
     background-color: lightgray;
     outline-style: double;
   } 
+
   marquee.back {
       background-color: gainsboro;
   }
@@ -50,3 +56,26 @@
     font-size: 45px;
     font-family: fantasy;
 } 
+.nav li {
+    /* border: 1px solid black; */
+    display: inline-block;
+    line-height: 30px;
+    padding: 0px 15px;
+    margin: 0px;
+ 
+  }
+ 
+  
+ 
+  .nav li a {
+   text-decoration: none;
+   color: darkslategray;
+   font-weight: 800;
+ }
+ 
+ 
+ .right {
+   float: right;
+ }
+
+

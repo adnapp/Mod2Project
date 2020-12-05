@@ -9,9 +9,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  <header>
+
   <h1 class="head"><br>Raging Bull<br><br></h1>
-  </header>
+      <ul class="nav">
+      <% if @current_investor %>
+        <li><%= link_to "Stocks Main Page", stocks_path %></li>
+        <li><%= link_to "Logout", logout_path, method: :delete  %></li>
+      <% end %>
+      <br>
+      <br>
+  
     <%= yield %>
+  
   </body>
 </html>

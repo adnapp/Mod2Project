@@ -11,11 +11,10 @@
 <h3>Current value of stocks: <%= number_to_currency(@live_total) %></h3>
 
 <h3>Total gain/loss <%= number_to_percentage(@percent_change) %></h3>
-
 <br>
-<p><%= link_to 'Search for a new stock to purchase', stocks_path %></p>
 <p><%= link_to 'Past filled orders', stock_filled_orders_path %></p>
-<p><%= link_to "Logout", logout_path, method: :delete %></p>
+</div>
+
 
 
 

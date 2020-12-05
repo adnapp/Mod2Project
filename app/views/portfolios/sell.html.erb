@@ -1,0 +1,29 @@
+<%@current_price = (@client.quote(params[:ticker]).latest_price)%>
+
+<h2>Sell shares of <%=@client.company(params[:ticker]).company_name%> </h2>
+
+<h4>Current Price: <%=number_to_currency(@current_price)%> </h4>
+<%=form_for @portfolio do |f|%>
+<%= f.label :quantity %>
+<%= f.number_field :quantity%><br><br>
+
+<!--<%= f.label :stock_id%> -->
+<!--<%= f.collection_select :stock_id, Stock.all, :id, :ticker %><br><br>-->
+
+<%= f.hidden_field :buysell, value: false %>
+<%= f.hidden_field :price, value: @current_price.to_f %>
+<%= f.hidden_field :ticker, value: params[:ticker]%> <!--this hidden field to send ticker - then check in DB, if not already in db, create it-->
+<!--maybe use a form_tag? so the portfolio(transaction) is not imediatly created -->
+
+<%= f.submit "Sell Share(s)"%>
+<%end%>
+<br><br>
+
+
+<br>
+<%= link_to "logout", logout_path, method: :delete %>
+
+
+
+
+

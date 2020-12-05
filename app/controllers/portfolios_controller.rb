@@ -1,10 +1,6 @@
 class PortfoliosController < ApplicationController
     before_action :api_client
-
-
-    def show #may not need this
-       @positions = Portfolio.all
-    end
+    before_action :unique_tickers
 
     def new
         @portfolio = Portfolio.new
@@ -34,7 +30,12 @@ class PortfoliosController < ApplicationController
     end
 
     def filledorders
+        @positions = Portfolio.all
+    end
 
+    def sell
+        @portfolio = Portfolio.new
+        @positions = Portfolio.all
     end
 
     def edit 
@@ -59,6 +60,9 @@ class PortfoliosController < ApplicationController
             secret_token: 'secret_token',
             endpoint: 'https://sandbox.iexapis.com/v1'
         )
+    end
 
+    def unique_tickers
+        @unique = Portfolio.unique_tickers
     end
 end

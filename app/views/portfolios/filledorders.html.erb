@@ -1,1 +1,20 @@
-<p>Filled orders page</p>
+<h1>List of Historical Orders</h1>
+<p><%= link_to 'Back to Portfolio', portfolios_path %>  </p>
+
+<% @positions.each do |t| %>
+
+    <p>Stock: <%= t.stock.ticker %></p>
+    <p>Price: $ <%= t[:price].to_f %></p>
+        <% if t.buysell%>
+            <p>Purchased: <%= t[:quantity] %> share(s) at <%=number_to_currency(t[:price])%></p>
+
+            <p>Txn Net -<%= number_to_currency(t[:price] * t[:quantity]) %></p>
+        <%else%>
+            <p>Share(s) Sold: <%= t[:quantity]  %></p>
+
+            <p>Txn: +<%= number_to_currency(t[:price] * t[:quantity]) %></p>
+        <%end%>
+        <br>
+<%end%>
+<br>
+<%= link_to "logout", logout_path, method: :delete %>

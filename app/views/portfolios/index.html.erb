@@ -1,13 +1,14 @@
 <!-- index through all the stocks held and list amount, want to only have unique and avg price-->
 <div>
-<h1>Current Holdings</h1>
-
+<h1>CURRENT HOLDINGS</h1>
+<br>
 <% @unique.each do |key, value| %>
 <%if value != 0%>
 <p><%= link_to @client.company(key).company_name, stock_show_path(key)%><p>
-<p><%="Quantity #{value}. Current price: $ #{@client.price(key)}"%></p>
+<p><%="Quantity #{value} - Current price: $ #{@client.price(key)}"%></p>
 <p><%= link_to "buy", stock_buy_path(key)%> 
 <%= link_to "sell", stock_sell_path(key)%> </p> <!--find way to pass quantity in params to sell-->
+<br><br>
 <%end%>
 <%end%>
 <br><br>
@@ -15,11 +16,10 @@
 <h3>Current value of stocks: <%= number_to_currency(@live_total) %></h3>
 
 <h3>Total gain/loss <%= number_to_percentage(@percent_change) %></h3>
-
 <br>
-<p><%= link_to 'Search for a new stock to purchase', stocks_path %></p>
-<p><%= link_to 'Past filled orders', stock_filled_orders_path %></p>
-<p><%= link_to "Logout", logout_path, method: :delete %></p>
+<p><%= link_to 'Past Filled Orders', stock_filled_orders_path %></p>
+</div>
+
 
 
 

@@ -1,1 +1,24 @@
+<<<<<<< HEAD
 Portfolio Show
+=======
+<div>
+<h1>HISTORICAL ORDERS</h1>
+<p><%= link_to 'Back To Portfolio', portfolios_path %>  </p>
+
+<% @positions.each do |t| %>
+
+    <p>Stock: <%= t.stock.ticker %></p>
+    <p>Price: $ <%= t[:price].to_f %></p>
+        <% if t.buysell%>
+            <p>Purchased: <%= t[:quantity] %> share(s) at <%=number_to_currency(t[:price])%></p>
+
+            <p>Txn Net -<%= number_to_currency(t[:price] * t[:quantity]) %></p>
+        <%else%>
+            <p>Share(s) Sold: <%= t[:quantity]  %></p>
+
+            <p>Txn: +<%= number_to_currency(t[:price] * t[:quantity]) %></p>
+        <%end%>
+        <br>
+<%end%>
+</div>
+>>>>>>> master

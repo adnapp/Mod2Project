@@ -10,7 +10,7 @@
 
 <%=form_for @portfolio do |f|%>
 <%= f.label :quantity %>
-<%= f.number_field :quantity%><br><br>
+<%= f.number_field :quantity, min: 0 %><br><br>
 
 <!--<%= f.label :stock_id%> -->
 <!--<%= f.collection_select :stock_id, Stock.all, :id, :ticker %><br><br>-->
@@ -22,14 +22,3 @@
 
 <%= f.submit "Purchase Share(s)"%>
 <%end%>
-<br><br>
-
-
-<br>
-<%= link_to "Logout", logout_path, method: :delete %>
-</div>
-
-
-
-
-

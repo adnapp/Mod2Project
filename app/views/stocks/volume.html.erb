@@ -1,4 +1,4 @@
-<marquee class="back double">
+<marquee class="back double size">
 <% @volume.each do |stock| %>
 <%= stock.company_name %> - 
 <% end %>
@@ -6,7 +6,16 @@
 <br>
 <br>
 <div>
-<h1>Highest Volume</h1>
+<%= form_tag stock_show_path(:search), method: :get do %>
+  <h1 class="cap"><%= label_tag "Search Stocks By Symbol"%></h1>
+  <br>
+  <%= search_field_tag :search %>
+    <%= submit_tag("Search")  %>
+ <%end%>
+</div>
+<br>
+<div>
+<h1>HIGHEST VOLUME</h1>
 <br>
 <% @volume.each do |stock|%>
 <p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>
@@ -15,14 +24,9 @@
 <br>
 <div>
 <%= form_tag stock_show_path(:search), method: :get do %>
-  <h2><%= label_tag "Search for a stock by ticker"%></h2>
+  <h1><%= label_tag "Search for a stock by ticker"%></h1>
   <br>
   <%= search_field_tag :search %>
     <%= submit_tag("Search")  %>
  <%end%>
-</div>
-<br>
-<%= link_to "Main Page", stocks_path %>
-<br>
-<br>
-<%= link_to "Logout", logout_path, method: :delete %>
+

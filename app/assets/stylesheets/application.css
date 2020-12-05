@@ -14,15 +14,16 @@
  *= require_self
  */
  body {
-    color: darkslategray;
-    background-color: linen;
+    color: rgb(78, 1, 1);
+    background-color: rgb(65, 64, 64);
     text-align: center;
     text-shadow: 1px 1px;
     font-family: monospace;
+    font-size: 17px;
   }
   a:link, a:visited {
     background-color: gainsboro;
-    color: darkslategray;
+    color: rgb(78, 1, 1);
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
@@ -46,15 +47,22 @@
     outline-style: double;
   } 
 
+  .border {
+      border: solid;
+  }
+
   marquee.back {
       background-color: gainsboro;
   }
   .head {
-    background-color: black;
+    background-color: rgb(29, 28, 28);
     border-style: double;
-    color: firebrick;
+    color: rgb(150, 40, 40);
     font-size: 45px;
     font-family: fantasy;
+    line-height: 30px;
+    padding: 0px 15px;
+    margin: 0px;
 } 
 .nav li {
     /* border: 1px solid black; */
@@ -62,6 +70,7 @@
     line-height: 30px;
     padding: 0px 15px;
     margin: 0px;
+    font-size: 17px;
  
   }
  
@@ -69,13 +78,29 @@
  
   .nav li a {
    text-decoration: none;
-   color: darkslategray;
+  
    font-weight: 800;
+   font-size: 17px;
+   
+ 
  }
  
  
  .right {
    float: right;
  }
+
+ .size {
+    font-size: 20px;
+ }
+
+.cap {
+    text-transform: uppercase;
+}
+
+.size2 {
+    font-size: 33px;
+}
+
 
 

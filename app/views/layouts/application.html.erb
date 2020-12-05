@@ -10,14 +10,16 @@
   </head>
   <body>
 
-  <h1 class="head"><br>Raging Bull<br><br></h1>
+  <h1 class="head"><br><%= image_tag("power-bull-vector-2537766.jpeg", size: "150x150") %><br><br>Raging Bull<br><br></h1>
       <ul class="nav">
       <% if @current_investor %>
-        <li><%= link_to "Stocks Main Page", stocks_path %></li>
-        <li><%= link_to "Logout", logout_path, method: :delete  %></li>
+         <li><%= link_to "Stocks Main Page", stocks_path %></li>
+         <li><%= link_to "Current Holdings", portfolios_path %></li>
+         <li><%= link_to "Logout", logout_path, method: :delete  %></li>
       <% end %>
+      </ul>
       <br>
-      <br>
+  
   
     <%= yield %>
   

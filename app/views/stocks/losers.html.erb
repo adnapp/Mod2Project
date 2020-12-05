@@ -1,4 +1,4 @@
-<marquee class="back double">
+<marquee class="back double size">
 <% @losers.each do |stock| %>
 <%= stock.company_name %> - 
 <% end %>
@@ -7,7 +7,7 @@
 <br>
 <div>
 <%= form_tag stock_show_path(:search), method: :get do %>
-  <h1><%= label_tag "Search for a stock by ticker"%></h1>
+  <h1 class="cap"><%= label_tag "Search Stocks By Symbol"%></h1>
   <br>
   <%= search_field_tag :search %>
     <%= submit_tag("Search")  %>
@@ -15,7 +15,7 @@
 </div>
 <br>
 <div>
-<h1>Biggest Losers</h1>
+<h1>BIGGEST LOSERS</h1>
 <br>
 <% @losers.each do |stock|%>
 <p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>

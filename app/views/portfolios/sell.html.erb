@@ -1,3 +1,4 @@
+<div>
 <%@current_price = (@client.quote(params[:ticker]).latest_price)%>
 
 <h2>Sell shares of <%=@client.company(params[:ticker]).company_name%> </h2>
@@ -5,7 +6,7 @@
 <h4>Current Price: <%=number_to_currency(@current_price)%> </h4>
 <%=form_for @portfolio do |f|%>
 <%= f.label :quantity %>
-<%= f.number_field :quantity%><br><br>
+<%= f.number_field :quantity, min: 0 %><br><br>
 
 <!--<%= f.label :stock_id%> -->
 <!--<%= f.collection_select :stock_id, Stock.all, :id, :ticker %><br><br>-->
@@ -18,10 +19,7 @@
 <%= f.submit "Sell Share(s)"%>
 <%end%>
 <br><br>
-
-
-<br>
-<%= link_to "logout", logout_path, method: :delete %>
+</div>
 
 
 

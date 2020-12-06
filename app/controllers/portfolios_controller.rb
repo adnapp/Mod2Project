@@ -1,6 +1,7 @@
 class PortfoliosController < ApplicationController
     before_action :api_client
     before_action :unique_tickers
+    before_action :find_portfolio, only: [:edit, :update]
 
     def new
         @portfolio = Portfolio.new
@@ -39,12 +40,12 @@ class PortfoliosController < ApplicationController
     end
 
     def edit 
-        @portfolio = Portfolio.find(params[:id])
+        # @portfolio = Portfolio.find(params[:id]) replacing
     end 
 
     def update 
-        portfolio = Portfolio.find(params[:id])
-        portfolio.update(portfolio_params)
+        # portfolio = Portfolio.find(params[:id]) replacing
+        @portfolio.update(portfolio_params)
         redirect_to portfolios_path 
     end 
 
@@ -60,6 +61,10 @@ class PortfoliosController < ApplicationController
             secret_token: 'secret_token',
             endpoint: 'https://sandbox.iexapis.com/v1'
         )
+    end
+
+    def find_portfolio
+        @portfolio = Portfolio.find(params[:id])
     end
 
     def unique_tickers

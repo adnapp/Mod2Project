@@ -1,8 +1,10 @@
 <marquee class="back double size"><%= @company.company_name %> - Trading at: $<%= @quote.latest_price %></marquee>
 <br>
 <br>
+<!--<%= @client.chart(@ticker, "1d")%> -->
 <div class="double">
 <h1><%= @company.company_name %></h1>
+<h3><%= @ticker %></h3>
  <p>Price: $<%= @quote.latest_price %></p>
  <p>52 Week High: <%= number_to_currency(@key_stats.week_52_high) %></p>
  <p>52 Week Low: <%= number_to_currency(@key_stats.week_52_low) %></p>

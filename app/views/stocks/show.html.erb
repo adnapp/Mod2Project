@@ -13,6 +13,6 @@
  <%if  !@key_stats.dividend_yield == 0 %>
     <p>Dividend Yield: <%= @key_stats.dividend_yield %></p>
 <%end%>
-<br><br>
+<br>
  <p><%= link_to "Purchase #{@ticker}", stock_buy_path(@ticker) %>  </p> 
  </div>

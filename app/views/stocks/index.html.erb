@@ -2,7 +2,7 @@
 <!--form to choose gainers/losers-->
 <div>
 <%= form_tag stock_show_path(:search), method: :get do %>
-  <h1 class="cap"><%= label_tag "SEARCH STOCKS BY SYMBOL"%></h1>
+  <h1 class="cap title size3"><%= label_tag "SEARCH STOCKS BY SYMBOL"%></h1>
   <br>
   <%= search_field_tag :search %>
    <%= submit_tag("Search")  %>
@@ -10,7 +10,7 @@
 </div>
 <br>
 <div>
-<h1>STOCK LISTS</h1>
+<h1 class="title">STOCK LISTS</h1>
 <br>
 <h3><%= link_to "Most Active", stock_active_path %></h3>
 <br>

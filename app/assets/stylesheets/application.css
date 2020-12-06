@@ -22,7 +22,7 @@
     font-size: 17px;
   }
   a:link, a:visited {
-    background-color: gainsboro;
+    background-color: rgb(151, 117, 30);
     color: rgb(78, 1, 1);
     padding: 14px 25px;
     text-align: center;
@@ -31,7 +31,7 @@
     outline-style: ridge;
   }
   a:hover, a:active {
-    background-color: ghostwhite;
+    background-color: rgb(182, 169, 95);
   }
   
   .double {outline-style: double;}
@@ -53,6 +53,7 @@
 
   marquee.back {
       background-color: gainsboro;
+      padding: 5px;
   }
   .head {
     background-color: black;
@@ -80,7 +81,6 @@
   
    font-weight: 800;
    font-size: 17px;
-   
  
  }
  
@@ -98,7 +98,27 @@
 }
 
 .size2 {
-    font-size: 33px;
+    font-size: 29px;
+}
+
+.size3 {
+    font-size: 32px;
+}
+
+.title {
+    background-color: black;
+    border-style: double;
+    color: rgb(150, 40, 40);
+    padding: 14px 25px;
+    display: inline-block;
+}
+
+.buy {
+    background-color: mediumaquamarine;
+}
+
+.sell {
+    background-color: rgb(235, 88, 88);
 }
 
 

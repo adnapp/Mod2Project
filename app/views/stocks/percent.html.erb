@@ -7,7 +7,7 @@
 <br>
 <div>
 <%= form_tag stock_show_path(:search), method: :get do %>
-  <h1 class="cap"><%= label_tag "Search Stocks By Symbol"%></h1>
+  <h1 class="cap title size"><%= label_tag "Search Stocks By Symbol"%></h1>
   <br>
   <%= search_field_tag :search %>
     <%= submit_tag("Search")  %>
@@ -15,7 +15,7 @@
 </div>
 <br>
 <div>
-<h1 class="size2">LARGEST PERCENTAGE CHANGE</h1>
+<h1 class="size2 title">LARGEST PERCENTAGE CHANGE</h1>
 <br>
 <% @percent.each do |stock|%>
 <p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>

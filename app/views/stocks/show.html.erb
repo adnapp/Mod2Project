@@ -2,7 +2,7 @@
 <br>
 <br>
 <div class="double">
-<h1><%= @company.company_name %></h1>
+<h1 class="title"><%= @company.company_name %></h1>
  <p>Price: $<%= @quote.latest_price %></p>
  <p>52 Week High: <%= number_to_currency(@key_stats.week_52_high) %></p>
  <p>52 Week Low: <%= number_to_currency(@key_stats.week_52_low) %></p>
@@ -11,6 +11,6 @@
  <%if  !@key_stats.dividend_yield == 0 %>
     <p>Dividend Yield: <%= @key_stats.dividend_yield %></p>
 <%end%>
-<br><br>
+<br>
  <p><%= link_to "Purchase #{@ticker}", stock_buy_path(@ticker) %>  </p> 
  </div>

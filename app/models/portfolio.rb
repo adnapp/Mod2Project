@@ -1,6 +1,7 @@
 class Portfolio < ApplicationRecord
     belongs_to :investor
     belongs_to :stock
+    after_initialize :init
 
 
 # let's try to build a method that will output an array of the unique stocks and their avg price -- make new array
@@ -67,5 +68,9 @@ class Portfolio < ApplicationRecord
         )
         
     end
+
+    def init 
+        self.cash_balance ||=10000
+    end 
 
 end

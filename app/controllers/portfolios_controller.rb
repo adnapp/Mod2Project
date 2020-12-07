@@ -34,7 +34,8 @@ class PortfoliosController < ApplicationController
     end 
 
     def filledorders
-        @positions = Portfolio.all
+        @positions = user_positions
+        # @positions = Portfolio.all
     end
 
     def sell
@@ -84,7 +85,22 @@ class PortfoliosController < ApplicationController
         else 
             @percent_change =  100 *(@live_total-@pp_total)/@pp_total
             @balance = Portfolio.cash
-            @positions = Portfolio.all
+            @positions = user_positions
         end
+
     end
+
+    def user_positions #only selects position for the logged in user
+        
+        position = []
+        Portfolio.find_each do |trxn|
+            
+            if trxn.investor_id == cookies[:investor_id].to_i
+                # byebug
+                position << trxn
+            end
+        end
+        position
+    end
+
 end

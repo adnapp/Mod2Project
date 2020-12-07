@@ -1,8 +1,7 @@
 <div>
-<h1 class="title">HISTORICAL ORDERS</h1>
+<h1 class="title">PAST FILLED ORDERS</h1>
 <p><%= link_to 'Back to Portfolio', portfolios_path %>  </p>
 <br><hr class="new1"><br>
-
 <% @positions.each do |t| %>
 
     <p>Stock: <%= t.stock.ticker %></p>

@@ -37,7 +37,6 @@ class StocksController < ApplicationController
                     @news = @client.news(params[:stockticker], 3)
                     @quote = @client.quote(params[:stockticker])
                     @ticker = params[:stockticker]
-                
             end
          
             # redirect_to stocks_path

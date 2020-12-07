@@ -2,11 +2,6 @@ class StocksController < ApplicationController
     before_action :api_client
 
     def index
-        # goes to api, show top 50 stock. 
-        #clicking brings you to show page (also ability to buy?)-- by sending unique info
-        #dropdown of client.stock_market_list(:mostactive) -- GET LIST. see what options we have
-        #
-
         lists
     end
 
@@ -20,7 +15,6 @@ class StocksController < ApplicationController
     end
 
     def show  #shows individual stocks  
-        # byebug
             if params[:search]
                 if @client.price(params[:search]) != nil #an attempt at error handling
                     @key_stats = @client.key_stats(params[:search])
@@ -37,11 +31,7 @@ class StocksController < ApplicationController
                     @news = @client.news(params[:stockticker], 3)
                     @quote = @client.quote(params[:stockticker])
                     @ticker = params[:stockticker]
-            end
-         
-            # redirect_to stocks_path
-
-        
+            end   
     end
 
     def new
@@ -91,13 +81,8 @@ private
         )
     end
 
-    # def stock_params 
-    #     params.require(:stock).permit(:symbol, :price, :quantity)
-    # end 
-
     def stock_params
         params.require(:stock).permit(:ticker)
-    end
-    
+    end  
     
 end

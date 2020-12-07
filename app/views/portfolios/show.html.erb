@@ -1,15 +1,17 @@
 <div>
 <h1 class="title">CURRENT HOLDINGS</h1>
 <br><hr class="new1"><br>
+
 <% @unique.each do |key, value| %>
-<%if value != 0%>
-<p><%= link_to @client.company(key).company_name, stock_show_path(key)%><p>
-<p><%="Quantity #{value} - Current price: $ #{@client.price(key)}"%></p>
-<p><%= link_to "buy", stock_buy_path(key)%>
-<%= link_to "sell", stock_sell_path(key)%> </p> <!--find way to pass quantity in params to sell-->
-<br><hr class="new1"><br>
+    <%if value != 0%>
+        <p><%= link_to @client.company(key).company_name, stock_show_path(key)%><p>
+        <p><%="Quantity #{value} - Current price: $ #{@client.price(key)}"%></p>
+        <p><%= link_to "buy", stock_buy_path(key)%>
+        <%= link_to "sell", stock_sell_path(key)%> </p>
+        <br><hr class="new1"><br>
+    <%end%>
 <%end%>
-<%end%>
+
 <h3>Total purchase price of stocks: <%= number_to_currency(@pp_total) %></h3>
 <h3>Current value of stocks: <%= number_to_currency(@live_total) %></h3>
 

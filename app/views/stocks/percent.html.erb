@@ -1,7 +1,7 @@
 <marquee class="back double size">
-<% @percent.each do |stock| %>
-<%= stock.company_name %> - 
-<% end %>
+  <% @percent.each do |stock| %>
+    <%= stock.company_name %> - 
+  <% end %>
 </marquee>
 <br>
 <br>
@@ -18,7 +18,7 @@
 <h1 class="size2 title">LARGEST PERCENTAGE CHANGE</h1>
 <br>
 <% @percent.each do |stock|%>
-<p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>
+  <p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>
 <%end%>
 </div>
 

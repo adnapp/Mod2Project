@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
     skip_before_action :authorized, only: [:new, :login]
   
-
-  
     def logout
       cookies.delete(:investor_id)
       redirect_to new_login_path

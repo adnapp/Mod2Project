@@ -1,7 +1,7 @@
 <marquee class="back double size">
-<% @active.each do |stock| %>
-<%= stock.company_name %> - 
-<% end %>
+  <% @active.each do |stock| %>
+    <%= stock.company_name %> - 
+  <% end %>
 </marquee>
 <br>
 <br>
@@ -10,15 +10,15 @@
   <h1 class="cap title size3"><%= label_tag "Search Stocks By Symbol"%></h1>
   <br>
   <%= search_field_tag :search %>
-    <%= submit_tag("Search")  %>
+  <%= submit_tag("Search")  %>
  <%end%>
 </div>
 <br>
 <div>
 <h1 class="title">MOST ACTIVE</h1>
-<br>
+<br>  
 <% @active.each do |stock|%>
-<p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>
+  <p><%= link_to stock.company_name, stock_show_path(stock.symbol) %></p>
 <%end%>
 </div>
 

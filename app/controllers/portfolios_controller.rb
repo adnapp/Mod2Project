@@ -2,48 +2,35 @@ class PortfoliosController < ApplicationController
     before_action :api_client
     before_action :unique_tickers
     before_action :find_portfolio, only: [:edit, :update]
+    before_action :portfolio_vars, only: [:index, :show]
 
     def new
         @portfolio = Portfolio.new
     end
 
     def create 
+        #this first part creates new stock db entry if not already there
         #look up stock, returns nill if not in db
         stock = Stock.all.find  {|stock| stock.ticker == params[:portfolio][:ticker]}
-
-        if !stock   #if not in db, set params 
+        if !stock   #if not in db, set params and create
             stock = Stock.create(ticker: params[:portfolio][:ticker])
         end
 
-        #need to add stock id to params
+        #need to add stock id to portfolio creation params
         params[:portfolio][:stock_id] = stock.id
+
+
+        #this is where validation goes
 
         #then we create the portfolio
         @current_investor.portfolios << Portfolio.create(portfolio_params)
-        # @portfolio = Portfolio.create(portfolio_params)
         redirect_to portfolios_path
     end
 
-    def index
-        @live_total = Portfolio.total_portfolio_value.round(2)
-        @pp_total = Portfolio.total_portfolio_purchase_price
-        @percent_change =  100 *(@live_total-@pp_total)/@pp_total
-        @balance = Portfolio.cash
+    def index    
     end
 
     def show 
-        @live_total = Portfolio.total_portfolio_value.round(2)
-        @pp_total = Portfolio.total_portfolio_purchase_price
-        @percent_change =  100 *(@live_total-@pp_total)/@pp_total
-        @balance = Portfolio.cash
-        @positions = Portfolio.all
-        # @portfolio = Portfolio.find(params[:id])
-        # @investor = Investor.find(params[:id])
-    #          if @investor == @current_investor
-    #     render :show
-    #   else
-    #      redirect_to new_investor_path 
-    #   end 
     end 
 
     def filledorders
@@ -56,11 +43,9 @@ class PortfoliosController < ApplicationController
     end
 
     def edit 
-        # @portfolio = Portfolio.find(params[:id]) replacing
     end 
 
     def update 
-        # portfolio = Portfolio.find(params[:id]) replacing
         @portfolio.update(portfolio_params)
         redirect_to portfolios_path 
     end 
@@ -85,5 +70,13 @@ class PortfoliosController < ApplicationController
 
     def unique_tickers
         @unique = Portfolio.unique_tickers
+    end
+
+    def portfolio_vars
+        @live_total = Portfolio.total_portfolio_value.round(2)
+        @pp_total = Portfolio.total_portfolio_purchase_price
+        @percent_change =  100 *(@live_total-@pp_total)/@pp_total
+        @balance = Portfolio.cash
+        @positions = Portfolio.all
     end
 end

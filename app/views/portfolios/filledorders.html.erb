@@ -2,18 +2,17 @@
 <h1 class="title">HISTORICAL ORDERS</h1>
 <p><%= link_to 'Back to Portfolio', portfolios_path %>  </p>
 <br><hr class="new1"><br>
+
 <% @positions.each do |t| %>
 
     <p>Stock: <%= t.stock.ticker %></p>
     <p>Price: $ <%= t[:price].to_f %></p>
         <% if t.buysell%>
             <p>Purchased: <%= t[:quantity] %> share(s) at <%=number_to_currency(t[:price])%></p>
-
             <p>Txn Net -<%= number_to_currency(t[:price] * t[:quantity]) %></p>
             <br><hr class="new1"><br>
         <%else%>
             <p>Share(s) Sold: <%= t[:quantity]  %></p>
-
             <p>Txn: +<%= number_to_currency(t[:price] * t[:quantity]) %></p>
             <br><hr class="new1"><br>
         <%end%>

@@ -13,17 +13,19 @@ class PortfoliosController < ApplicationController
         #look up stock, returns nill if not in db
         stock = Stock.all.find  {|stock| stock.ticker == params[:portfolio][:ticker]}
         if !stock   #if not in db, set params and create
-            stock = Stock.create(ticker: params[:portfolio][:ticker])
+            stock = Stock.create(ticker: paramas[:portfolio][:ticker])
         end
-
+        
+        # byebug
         #need to add stock id to portfolio creation params
         params[:portfolio][:stock_id] = stock.id
 
 
         #this is where validation goes
-
-        #then we create the portfolio
+        # byebug
+        #then we create the portfolio -- this step somehow creating a new stock object
         @current_investor.portfolios << Portfolio.create(portfolio_params)
+        # byebug
         redirect_to portfolios_path
     end
 
@@ -35,7 +37,6 @@ class PortfoliosController < ApplicationController
 
     def filledorders
         @positions = user_positions
-        # @positions = Portfolio.all
     end
 
     def sell
@@ -85,12 +86,13 @@ class PortfoliosController < ApplicationController
         else 
             @percent_change =  100 *(@live_total-@pp_total)/@pp_total
             @balance = Portfolio.cash
-            @positions = user_positions
-        end
+            @positions = Portfolio.all
+    end
 
     end
 
     def user_positions #only selects position for the logged in user
+        #may want to redo this, and use the relationships (has many, etc_)
         
         position = []
         Portfolio.find_each do |trxn|

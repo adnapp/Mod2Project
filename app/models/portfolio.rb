@@ -9,8 +9,6 @@ def sold_quantity_cannot_be_greater_than_shares_held
 
 end
 
-
-
 # let's try to build a method that will output an array of the unique stocks and their avg price -- make new array
 #for total. we want average price paid and # of shares
 # if name isnt there, add it to the array. conditional inside: if it's a buy, then 

@@ -13,6 +13,7 @@
   <h1 class="head"><%= image_tag("output-onlinepngtools.png", size: "150x150") %><br>Raging Bull<br><br></h1>
       <ul class="nav">
       <% if @current_investor %>
+          <li><%= "Welcome #{@current_investor.name}" %></li>
          <li><%= link_to "Stocks Main Page", stocks_path %></li>
          <li><%= link_to "Current Holdings", portfolios_path %></li>
          <li><%= link_to "Logout", logout_path, method: :delete  %></li>

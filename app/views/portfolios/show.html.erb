@@ -17,4 +17,6 @@
 
 <h3>Total gain/loss <%= number_to_percentage(@percent_change) %></h3>
 <h3>Cash Balance <%= number_to_currency(@balance) %></h3>
+<br>
+<p><%= link_to 'Past Transactions', stock_filled_orders_path %></p>
 </div>

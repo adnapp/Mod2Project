@@ -13,7 +13,7 @@ class PortfoliosController < ApplicationController
         #look up stock, returns nill if not in db
         stock = Stock.all.find  {|stock| stock.ticker == params[:portfolio][:ticker]}
         if !stock   #if not in db, set params and create
-            stock = Stock.create(ticker: paramas[:portfolio][:ticker])
+            stock = Stock.create(ticker: params[:portfolio][:ticker])
         end
 
         #need to add stock id to portfolio creation params

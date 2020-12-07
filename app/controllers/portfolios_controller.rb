@@ -73,10 +73,18 @@ class PortfoliosController < ApplicationController
     end
 
     def portfolio_vars
+        
         @live_total = Portfolio.total_portfolio_value.round(2)
         @pp_total = Portfolio.total_portfolio_purchase_price
-        @percent_change =  100 *(@live_total-@pp_total)/@pp_total
-        @balance = Portfolio.cash
-        @positions = Portfolio.all
+        # byebug
+        if @pp_total == 0
+            @percent_change = 0
+            @balance = 0
+            @positions = 0
+        else 
+            @percent_change =  100 *(@live_total-@pp_total)/@pp_total
+            @balance = Portfolio.cash
+            @positions = Portfolio.all
+        end
     end
 end

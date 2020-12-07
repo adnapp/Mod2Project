@@ -10,52 +10,52 @@ Portfolio.destroy_all
 Stock.destroy_all
 
 Investor.create({
-    username: "adamnap",
-    password: "password",
-    name: "Adam",
-    bio: "about adam"
+    username: "JordanB",
+    password: "stock",
+    name: "Jordan Belfort",
+    bio: "a stockbroker running a Wall Street firm based on scamming people through a pump-and-dump scheme."
 })
 
 Investor.create({
     username: "batman",
-    password: "password",
+    password: "batman",
     name: "Bruce W",
-    bio: "about batman"
+    bio: "Batman has dedicated his life to an endless crusade, a war on all criminals in the name of his murdered parents, who were taken from him when he was just a child."
 })
 
-Stock.create({
-    ticker: "TSLA"
-})
-Stock.create({
-    ticker: "AAPL"
-})
+# Stock.create({
+#     ticker: "TSLA"
+# })
+# Stock.create({
+#     ticker: "AAPL"
+# })
 
 i1 = Investor.first
 i2 = Investor.second
 s1 = Stock.first
 s2 = Stock.second
 
-Portfolio.create({
-    investor_id: i1.id,
-    stock_id: s1.id,
-    price: 100,
-    buysell: true,
-    quantity: 4
-})
-Portfolio.create({
-    investor_id: i2.id,
-    stock_id: s2.id,
-    price: 200,
-    buysell: true,
-    quantity: 5
-})
-Portfolio.create({
-    investor_id: i2.id,
-    stock_id: s2.id,
-    price: 250,
-    buysell: false,
-    quantity: 2
-})
+# Portfolio.create({
+#     investor_id: i1.id,
+#     stock_id: s1.id,
+#     price: 100,
+#     buysell: true,
+#     quantity: 4
+# })
+# Portfolio.create({
+#     investor_id: i2.id,
+#     stock_id: s2.id,
+#     price: 200,
+#     buysell: true,
+#     quantity: 5
+# })
+# Portfolio.create({
+#     investor_id: i2.id,
+#     stock_id: s2.id,
+#     price: 250,
+#     buysell: false,
+#     quantity: 2
+# })
 
 
 require 'pry'

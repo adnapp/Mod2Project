@@ -1,5 +1,6 @@
 class StocksController < ApplicationController
     before_action :api_client
+    skip_before_action :authorized
 
     def index
         lists

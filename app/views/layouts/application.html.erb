@@ -17,10 +17,13 @@
          <li><%= link_to "Stocks Main Page", stocks_path %></li>
          <li><%= link_to "Current Holdings", portfolios_path %></li>
          <li><%= link_to "Logout", logout_path, method: :delete  %></li>
+      <%else%>
+        <li><%= link_to "Stocks Main Page", stocks_path %></li>
+         <li><%= link_to "Create Account", new_investor_path %></li>
+        <li><%= link_to "Login", new_login_path %></li>
       <% end %>
       </ul>
       <br>
-  
   
     <%= yield %>
   

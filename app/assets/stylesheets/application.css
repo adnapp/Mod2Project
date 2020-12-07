@@ -124,4 +124,9 @@ hr.line {
     border: 1px rgb(78, 1, 1);  
 }
 
+.back2 { 
+    background-color: black;
+    color: rgb(150, 40, 40);
+    border: double;
+}
 

@@ -21,17 +21,19 @@
     font-family: monospace;
     font-size: 17px;
   }
+  
   a:link, a:visited {
-    background-color: rgb(151, 117, 30);
-    color: rgb(78, 1, 1);
+    background-color:lightslategray;     
+    color: rgb(56, 56, 56);
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     outline-style: ridge;
   }
+
   a:hover, a:active {
-    background-color: rgb(182, 169, 95);
+    background-color: rgb(177, 206, 233); 
   }
   
   .double {outline-style: double;}
@@ -55,6 +57,7 @@
       background-color: gainsboro;
       padding: 5px;
   }
+  
   .head {
     background-color: black;
     border-style: double;
@@ -65,6 +68,7 @@
     padding: 0px 15px;
     margin: 0px;
 } 
+
 .nav li {
     /* border: 1px solid black; */
     display: inline-block;
@@ -74,16 +78,11 @@
     font-size: 17px;
   }
  
-  
- 
   .nav li a {
    text-decoration: none;
-  
    font-weight: 800;
    font-size: 17px;
- 
  }
- 
  
  .right {
    float: right;
@@ -121,5 +120,8 @@
     background-color: rgb(235, 88, 88);
 }
 
+hr.line {
+    border: 1px rgb(78, 1, 1);  
+}
 
 

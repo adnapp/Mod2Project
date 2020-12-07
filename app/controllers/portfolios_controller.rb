@@ -27,7 +27,23 @@ class PortfoliosController < ApplicationController
         @live_total = Portfolio.total_portfolio_value.round(2)
         @pp_total = Portfolio.total_portfolio_purchase_price
         @percent_change =  100 *(@live_total-@pp_total)/@pp_total
+        @balance = Portfolio.cash
     end
+
+    def show 
+        @live_total = Portfolio.total_portfolio_value.round(2)
+        @pp_total = Portfolio.total_portfolio_purchase_price
+        @percent_change =  100 *(@live_total-@pp_total)/@pp_total
+        @balance = Portfolio.cash
+        @positions = Portfolio.all
+        # @portfolio = Portfolio.find(params[:id])
+        # @investor = Investor.find(params[:id])
+    #          if @investor == @current_investor
+    #     render :show
+    #   else
+    #      redirect_to new_investor_path 
+    #   end 
+    end 
 
     def filledorders
         @positions = Portfolio.all

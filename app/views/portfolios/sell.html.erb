@@ -1,7 +1,7 @@
 <div>
 <%@current_price = (@client.quote(params[:ticker]).latest_price)%>
 
-<h2>Sell shares of <%=@client.company(params[:ticker]).company_name%> </h2>
+<h2 class="title">Sell shares of <%=@client.company(params[:ticker]).company_name%> </h2>
 
 <h4>Current Price: <%=number_to_currency(@current_price)%> </h4>
 <%=form_for @portfolio do |f|%>

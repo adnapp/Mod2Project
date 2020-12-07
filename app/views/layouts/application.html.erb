@@ -14,8 +14,8 @@
       <ul class="nav">
       <% if @current_investor %>
           <li><%= link_to "Welcome #{@current_investor.name}", investor_path(@current_investor) %></li>
-         <li><%= link_to "Stocks Main Page", stocks_path %></li>
-         <li><%= link_to "Current Holdings", portfolios_path %></li>
+         <li><%= link_to "All Stocks", stocks_path %></li>
+         <li><%= link_to "Portfolio", portfolios_path %></li>
          <li><%= link_to "Logout", logout_path, method: :delete  %></li>
       <%else%>
         <li><%= link_to "Stocks Main Page", stocks_path %></li>

@@ -18,16 +18,21 @@ end
 #stocks = [{"tesla" => 4, {"apple" => 3 }] using this instead of more hashes for ease of merge
 
 @orders = Portfolio.all
-    def self.unique_tickers
+
+    def self.unique_tickers(investor_id)
+        
         stocklisting = []
         Portfolio.find_each do |trxn| #this gives us key value stock / quantity
-            stock = {}
+            # byebug
+            if trxn.investor_id == investor_id
+                stock = {}
                 if trxn.buysell
                     stock[trxn.stock.ticker] = trxn.quantity 
                 else
                     stock[trxn.stock.ticker] = trxn.quantity * -1
                 end
-            stocklisting << stock
+                stocklisting << stock
+            end
         end
         stocklisting.inject{|a,b| a.merge(b){|_,x,y| x + y}} #this combines hashes with same name
     end

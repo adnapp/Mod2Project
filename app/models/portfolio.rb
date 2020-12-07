@@ -11,7 +11,6 @@ class Portfolio < ApplicationRecord
 #stocks = [{"tesla" => 4, {"apple" => 3 }]
 
 @orders = Portfolio.all
-
     def self.unique_tickers
         stocklisting = []
         Portfolio.find_each do |trxn| #this gives us key value stock / quantity
@@ -58,7 +57,13 @@ class Portfolio < ApplicationRecord
         @total
     end
 
-
+    def self.cash 
+        @cash = Portfolio.all 
+        @cash.each do |t|
+            @balance = t.cash_balance
+        end 
+        @balance - self.total_portfolio_purchase_price
+    end
 
     def self.api_client
         @client = IEX::Api::Client.new(

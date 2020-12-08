@@ -39,7 +39,6 @@ end
         # @orders = Portfolio.all
         @total=0
         current_investor.portfolios.each do |t|
-            # byebug
             if t.buysell #if stock is bought, this boolean is true
                 p = t[:quantity] * t[:price]
                 @total += p
@@ -48,7 +47,8 @@ end
                 @total -= p
             end
         end 
-        # byebug
+        
+        byebug
         @total
     end
 

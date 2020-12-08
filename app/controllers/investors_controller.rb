@@ -27,15 +27,11 @@ class InvestorsController < ApplicationController
         @investor = Investor.find(params[:id])
         
         if !@current_investor.portfolios[0]
-          @balance = "$10,000"
+          @balance = "10,000"
         else 
           @balance = Portfolio.cash(@current_investor)
         end
-    #   if @investor == @current_investor
-    #     render :show
-    #   else
-    #      redirect_to new_investor_path 
-    #   end 
+
     end
 
     def destroy

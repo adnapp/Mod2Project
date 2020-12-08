@@ -46,31 +46,27 @@ class StocksController < ApplicationController
     end 
 
     def active
-        lists
+        @active = @client.stock_market_list(:mostactive)
     end 
 
     def gainers 
-        lists
+        @gainers = @client.stock_market_list(:gainers)
     end 
 
     def losers
-        lists
+        @losers = @client.stock_market_list(:losers)
     end 
 
     def volume 
-        lists
+        @volume = @client.stock_market_list(:iexvolume)
     end
 
     def percent 
-        lists
+        @percent = @client.stock_market_list(:iexpercent)
     end 
 
     def lists
-        @active = @client.stock_market_list(:mostactive)
-        @gainers = @client.stock_market_list(:gainers)
-        @losers = @client.stock_market_list(:losers)
-        @volume = @client.stock_market_list(:iexvolume)
-        @percent = @client.stock_market_list(:iexpercent)
+        # byebug
     end 
 
 private

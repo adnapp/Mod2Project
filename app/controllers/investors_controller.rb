@@ -28,9 +28,13 @@ class InvestorsController < ApplicationController
         
         if !@current_investor.portfolios[0]
           @balance = "10,000"
+          @value = @balance
         else 
           @balance = Portfolio.cash(@current_investor)
+          @value = Portfolio.total_portfolio_value(@current_investor) + @balance
+
         end
+
 
     end
 

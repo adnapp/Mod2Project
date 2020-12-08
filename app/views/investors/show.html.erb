@@ -1,7 +1,8 @@
 <div>
 <h1 class="title">Hello <%= @investor.name %>!</h1>
 <br>
-<h2>Your current balance is <%= number_to_currency(@balance) %></h2>
+<h2>Your current cash balance is <%= number_to_currency(@balance) %></h2>
+<h2>Your total portfolio value <%= number_to_currency(@value) %></h2>
 <br>
 <h2>BIO: <%= @investor.bio %></h2>
 <br>

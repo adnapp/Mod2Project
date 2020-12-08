@@ -3,7 +3,7 @@ class CreatePortfolios < ActiveRecord::Migration[6.0]
     create_table :portfolios do |t|
       t.integer :investor_id
       t.integer :stock_id
-      t.integer :price
+      t.float :price
       t.boolean :buysell
 
       t.timestamps

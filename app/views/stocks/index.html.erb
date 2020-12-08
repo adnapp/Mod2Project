@@ -3,9 +3,12 @@
 <%= form_tag stock_show_path(:search), method: :get do %>
   <h1 class="cap title size3"><%= label_tag "SEARCH STOCKS BY SYMBOL"%></h1>
   <br>
+  <br>
   <%= search_field_tag :search %>
    <%= submit_tag("Search")  %>
  <%end%>
+ <br>
+ <br>
 </div>
 <br>
 <div>
@@ -20,6 +23,7 @@
 <h3><%= link_to "Highest Volume Today", stock_volume_path %></h3>
 <br>
 <h3><%= link_to "Largest Percentage Change", stock_percent_path %></h3>
+<br>
 <br>
 </div>
 <!-- search bar, sending same info back. form tag, repeat above-->

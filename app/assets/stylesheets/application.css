@@ -30,6 +30,7 @@
     text-decoration: none;
     display: inline-block;
     outline-style: ridge;
+    margin: 15px;
   }
 
   a:hover, a:active {
@@ -41,8 +42,8 @@
   .solid {border-style: solid;}
   
   div {
-    width: 500px;
-    padding: 50px;
+    width: 600px;
+   
     margin: 20px;
     margin:0px auto;
     background-color: lightgray;
@@ -70,7 +71,6 @@
 } 
 
 .nav li {
-    /* border: 1px solid black; */
     display: inline-block;
     line-height: 30px;
     padding: 0px 15px;
@@ -110,6 +110,7 @@
     color: rgb(150, 40, 40);
     padding: 14px 25px;
     display: inline-block;
+    margin: 20px;
 }
 
 .buy {
@@ -129,4 +130,5 @@ hr.line {
     color: rgb(150, 40, 40);
     border: double;
 }
+
 

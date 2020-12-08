@@ -8,7 +8,7 @@
     <% @unique.each do |key, value| %>
         <%if value != 0%>
             <p><%= link_to @client.company(key).company_name, stock_show_path(key)%><p>
-            <p><%="Quantity #{value} - Current price: $ #{@client.price(key)}"%></p>
+            <p><%="Quantity #{value} - Current price: #{number_to_currency(@client.price(key))}"%></p>
             <p><%= link_to "buy", stock_buy_path(key)%>
             <%= link_to "sell", stock_sell_path(key)%> </p> 
             <br><hr class="new1"><br>
@@ -19,16 +19,18 @@
     <br><hr class="new1"><br>
 <%end%>
 
+<%if @unique %>
+    <h3>Total purchase price: <%= number_to_currency(@pp_total) %></h3>
+    <h3>Current value: <%= number_to_currency(@live_total) %></h3>     
+    <h3>Total gain/loss: <%= number_to_percentage(@percent_change) %></h3>
+    <h3>Cash Balance: <%= number_to_currency(@balance) %></h3>
+    <br>
+    <p><%= link_to 'Past Transactions', stock_filled_orders_path %></p>
+    </div>
+<%else%>
+   <h3>Account Balance: $10,000 </h3> <!--hard coded, not ideal-->
 
-<h3>Total purchase price: <%= number_to_currency(@pp_total) %></h3>
-<h3>Current value: <%= number_to_currency(@live_total) %></h3>     
-<h3>Total gain/loss: <%= number_to_percentage(@percent_change) %></h3>
-<h3>Cash Balance: <%= number_to_currency(@balance) %></h3>
-
-<br>
-<p><%= link_to 'Past Transactions', stock_filled_orders_path %></p>
-</div>
-
+<%end%>
 
 
 

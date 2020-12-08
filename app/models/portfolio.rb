@@ -35,10 +35,11 @@ end
         stocklisting.inject{|a,b| a.merge(b){|_,x,y| x + y}} #this combines hashes with same name
     end
 
-    def self.total_portfolio_purchase_price
-        @orders = Portfolio.all
+    def self.total_portfolio_purchase_price(current_investor)
+        # @orders = Portfolio.all
         @total=0
-        @orders.each do |t|
+        current_investor.portfolios.each do |t|
+            # byebug
             if t.buysell #if stock is bought, this boolean is true
                 p = t[:quantity] * t[:price]
                 @total += p
@@ -47,14 +48,15 @@ end
                 @total -= p
             end
         end 
+        # byebug
         @total
     end
 
-    def self.total_portfolio_value 
-        @orders = Portfolio.all
+    def self.total_portfolio_value(current_investor)
+        # @orders = Portfolio.all
         self.api_client
         @total=0
-        @orders.each do |t|
+        current_investor.portfolios.each do |t|
             if t.buysell #if stock is bought, this boolean is true
                 
                 p = t[:quantity] * @client.price(t.stock.ticker)
@@ -67,12 +69,13 @@ end
         @total
     end
 
-    def self.cash 
-        @cash = Portfolio.all 
-        @cash.each do |t|
+    def self.cash(current_investor)
+        # @cash = Portfolio.all 
+        # byebug
+        current_investor.portfolios.each do |t|
             @balance = t.cash_balance
         end 
-        @balance - self.total_portfolio_purchase_price
+        @balance - self.total_portfolio_purchase_price(current_investor)
     end
 
     def self.api_client

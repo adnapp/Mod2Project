@@ -13,7 +13,7 @@
  <%if  !@key_stats.dividend_yield == 0 %>
     <p>Dividend Yield: <%= @key_stats.dividend_yield %></p>
 <%end%>
-<br>
+
 <%if cookies[:investor_id]%>
     <p><%= link_to "Purchase #{@ticker}", stock_buy_path(@ticker) %>  </p> 
     <p><%= link_to "Search Again", stocks_path %>  </p> 

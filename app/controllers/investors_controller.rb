@@ -25,6 +25,12 @@ class InvestorsController < ApplicationController
 
     def show
         @investor = Investor.find(params[:id])
+        
+        if !@current_investor.portfolios[0]
+          @balance = "$10,000"
+        else 
+          @balance = Portfolio.cash(@current_investor)
+        end
     #   if @investor == @current_investor
     #     render :show
     #   else
